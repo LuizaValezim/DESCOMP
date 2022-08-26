@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Aula2
-Fri Aug 26 13:43:56 2022
+Fri Aug 26 15:09:12 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -51,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Aug 26 13:43:56 2022       ;
+; Analysis & Synthesis Status     ; Successful - Fri Aug 26 15:09:12 2022       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; Aula2                                       ;
 ; Top-level Entity Name           ; Aula2                                       ;
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
 ; Top-level entity name                                                           ; Aula2              ; Aula2              ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
@@ -164,7 +164,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
+; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -172,23 +172,22 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                     ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                              ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------+---------+
-; Aula2.vhd                        ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd               ;         ;
-; memoriaROM.vhd                   ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/memoriaROM.vhd          ;         ;
-; somaConstante.vhd                ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/somaConstante.vhd       ;         ;
-; registradorGenerico.vhd          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/registradorGenerico.vhd ;         ;
-; muxGenerico2x1.vhd               ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/muxGenerico2x1.vhd      ;         ;
-; ULASomaSub.vhd                   ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/ULASomaSub.vhd          ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+; Aula2.vhd                        ; yes             ; User VHDL File  ; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd               ;         ;
+; memoriaROM.vhd                   ; yes             ; User VHDL File  ; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/memoriaROM.vhd          ;         ;
+; somaConstante.vhd                ; yes             ; User VHDL File  ; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/somaConstante.vhd       ;         ;
+; registradorGenerico.vhd          ; yes             ; User VHDL File  ; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/registradorGenerico.vhd ;         ;
+; muxGenerico2x1.vhd               ; yes             ; User VHDL File  ; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/muxGenerico2x1.vhd      ;         ;
+; ULASomaSub.vhd                   ; yes             ; User VHDL File  ; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/ULASomaSub.vhd          ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------+
@@ -370,62 +369,62 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Aug 26 13:43:41 2022
+    Info: Processing started: Fri Aug 26 15:09:04 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Aula2 -c Aula2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file aula2.vhd
-    Info (12022): Found design unit 1: Aula2-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 20
-    Info (12023): Found entity 1: Aula2 File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file memoriarom.vhd
-    Info (12022): Found design unit 1: memoriaROM-assincrona File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/memoriaROM.vhd Line: 16
-    Info (12023): Found entity 1: memoriaROM File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/memoriaROM.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file somaconstante.vhd
-    Info (12022): Found design unit 1: somaConstante-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/somaConstante.vhd Line: 18
-    Info (12023): Found entity 1: somaConstante File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/somaConstante.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
-    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/registradorGenerico.vhd Line: 15
-    Info (12023): Found entity 1: registradorGenerico File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/registradorGenerico.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1.vhd
-    Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/muxGenerico2x1.vhd Line: 14
-    Info (12023): Found entity 1: muxGenerico2x1 File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/muxGenerico2x1.vhd Line: 4
-Info (12021): Found 3 design units, including 1 entities, in source file edgedetector.vhd
-    Info (12022): Found design unit 1: edgeDetector-bordaSubida File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/edgeDetector.vhd Line: 10
-    Info (12022): Found design unit 2: edgeDetector-bordaDescida File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/edgeDetector.vhd Line: 23
-    Info (12023): Found entity 1: edgeDetector File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/edgeDetector.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file ulasomasub.vhd
-    Info (12022): Found design unit 1: ULASomaSub-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/ULASomaSub.vhd Line: 14
-    Info (12023): Found entity 1: ULASomaSub File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/ULASomaSub.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Aula2.vhd
+    Info (12022): Found design unit 1: Aula2-arquitetura File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 20
+    Info (12023): Found entity 1: Aula2 File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file memoriaROM.vhd
+    Info (12022): Found design unit 1: memoriaROM-assincrona File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/memoriaROM.vhd Line: 16
+    Info (12023): Found entity 1: memoriaROM File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/memoriaROM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file somaConstante.vhd
+    Info (12022): Found design unit 1: somaConstante-comportamento File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/somaConstante.vhd Line: 18
+    Info (12023): Found entity 1: somaConstante File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/somaConstante.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file registradorGenerico.vhd
+    Info (12022): Found design unit 1: registradorGenerico-comportamento File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/registradorGenerico.vhd Line: 15
+    Info (12023): Found entity 1: registradorGenerico File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/registradorGenerico.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file muxGenerico2x1.vhd
+    Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/muxGenerico2x1.vhd Line: 14
+    Info (12023): Found entity 1: muxGenerico2x1 File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/muxGenerico2x1.vhd Line: 4
+Info (12021): Found 3 design units, including 1 entities, in source file edgeDetector.vhd
+    Info (12022): Found design unit 1: edgeDetector-bordaSubida File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/edgeDetector.vhd Line: 10
+    Info (12022): Found design unit 2: edgeDetector-bordaDescida File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/edgeDetector.vhd Line: 23
+    Info (12023): Found entity 1: edgeDetector File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/edgeDetector.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ULASomaSub.vhd
+    Info (12022): Found design unit 1: ULASomaSub-comportamento File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/ULASomaSub.vhd Line: 14
+    Info (12023): Found entity 1: ULASomaSub File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/ULASomaSub.vhd Line: 5
 Info (12127): Elaborating entity "Aula2" for the top level hierarchy
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX1" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 51
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:REGA" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 58
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 62
-Info (12128): Elaborating entity "somaConstante" for hierarchy "somaConstante:incrementaPC" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 65
-Info (12128): Elaborating entity "ULASomaSub" for hierarchy "ULASomaSub:ULA1" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 70
-Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:ROM1" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 74
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX1" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 51
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:REGA" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 58
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 62
+Info (12128): Elaborating entity "somaConstante" for hierarchy "somaConstante:incrementaPC" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 65
+Info (12128): Elaborating entity "ULASomaSub" for hierarchy "ULASomaSub:ULA1" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 70
+Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:ROM1" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 74
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "memoriaROM:ROM1|memROM" is uninferred due to inappropriate RAM size File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/memoriaROM.vhd Line: 33
+    Info (276004): RAM logic "memoriaROM:ROM1|memROM" is uninferred due to inappropriate RAM size File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/memoriaROM.vhd Line: 33
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 15
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 15
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 15
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 15
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_50" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 11
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 12
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 13
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Aula2.vhd Line: 13
+    Warning (15610): No output dependent on input pin "CLOCK_50" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 12
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 12
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[4]" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 13
+    Warning (15610): No output dependent on input pin "SW[5]" File: /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Aula2.vhd Line: 13
 Info (21057): Implemented 39 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 13 output pins
     Info (21061): Implemented 11 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4848 megabytes
-    Info: Processing ended: Fri Aug 26 13:43:56 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Peak virtual memory: 478 megabytes
+    Info: Processing ended: Fri Aug 26 15:09:12 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:17
 
 

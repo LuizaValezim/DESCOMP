@@ -15,19 +15,19 @@ SW[6] => ulasomasub:ULA1.entradaB[0]
 SW[7] => ulasomasub:ULA1.entradaB[1]
 SW[8] => ulasomasub:ULA1.entradaB[2]
 SW[9] => ulasomasub:ULA1.entradaB[3]
-PC_OUT[0] << registradorgenerico:PC.DOUT[0]
-PC_OUT[1] << registradorgenerico:PC.DOUT[1]
-PC_OUT[2] << registradorgenerico:PC.DOUT[2]
-LEDR[0] << registradorgenerico:REGA.DOUT[0]
-LEDR[1] << registradorgenerico:REGA.DOUT[1]
-LEDR[2] << registradorgenerico:REGA.DOUT[2]
-LEDR[3] << registradorgenerico:REGA.DOUT[3]
-LEDR[4] << <GND>
-LEDR[5] << <GND>
-LEDR[6] << memoriarom:ROM1.Dado[0]
-LEDR[7] << memoriarom:ROM1.Dado[1]
-LEDR[8] << memoriarom:ROM1.Dado[2]
-LEDR[9] << memoriarom:ROM1.Dado[3]
+PC_OUT[0] <= registradorgenerico:PC.DOUT[0]
+PC_OUT[1] <= registradorgenerico:PC.DOUT[1]
+PC_OUT[2] <= registradorgenerico:PC.DOUT[2]
+LEDR[0] <= registradorgenerico:REGA.DOUT[0]
+LEDR[1] <= registradorgenerico:REGA.DOUT[1]
+LEDR[2] <= registradorgenerico:REGA.DOUT[2]
+LEDR[3] <= registradorgenerico:REGA.DOUT[3]
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= memoriarom:ROM1.Dado[0]
+LEDR[7] <= memoriarom:ROM1.Dado[1]
+LEDR[8] <= memoriarom:ROM1.Dado[2]
+LEDR[9] <= memoriarom:ROM1.Dado[3]
 
 
 |Aula2|muxGenerico2x1:MUX1

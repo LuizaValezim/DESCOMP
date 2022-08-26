@@ -17,10 +17,10 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "08/26/2022 13:44:58"
+-- DATE "08/26/2022 15:15:57"
 
 -- 
--- Device: Altera 5CGXFC7C7F23C8 Package FBGA484
+-- Device: Altera 5CEBA4F23C7 Package FBGA484
 -- 
 
 -- 
@@ -41,8 +41,8 @@ ENTITY 	Aula2 IS
 	CLOCK_50 : IN std_logic;
 	KEY : IN std_logic_vector(3 DOWNTO 0);
 	SW : IN std_logic_vector(9 DOWNTO 0);
-	PC_OUT : BUFFER std_logic_vector(2 DOWNTO 0);
-	LEDR : BUFFER std_logic_vector(9 DOWNTO 0)
+	PC_OUT : OUT std_logic_vector(2 DOWNTO 0);
+	LEDR : OUT std_logic_vector(9 DOWNTO 0)
 	);
 END Aula2;
 
@@ -103,8 +103,8 @@ SIGNAL \SW[9]~input_o\ : std_logic;
 SIGNAL \ULA1|Add0~10\ : std_logic;
 SIGNAL \ULA1|Add0~13_sumout\ : std_logic;
 SIGNAL \SW[3]~input_o\ : std_logic;
-SIGNAL \REGA|DOUT\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \PC|DOUT\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \REGA|DOUT\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \ALT_INV_SW[9]~input_o\ : std_logic;
 SIGNAL \ALT_INV_SW[8]~input_o\ : std_logic;
 SIGNAL \ALT_INV_SW[7]~input_o\ : std_logic;
@@ -131,12 +131,12 @@ ww_devpor <= devpor;
 \ROM1|ALT_INV_memROM~2_combout\ <= NOT \ROM1|memROM~2_combout\;
 \ROM1|ALT_INV_memROM~0_combout\ <= NOT \ROM1|memROM~0_combout\;
 \PC|ALT_INV_DOUT\(2) <= NOT \PC|DOUT\(2);
-\PC|ALT_INV_DOUT\(1) <= NOT \PC|DOUT\(1);
-\PC|ALT_INV_DOUT\(0) <= NOT \PC|DOUT\(0);
 \REGA|ALT_INV_DOUT\(3) <= NOT \REGA|DOUT\(3);
 \REGA|ALT_INV_DOUT\(2) <= NOT \REGA|DOUT\(2);
-\REGA|ALT_INV_DOUT\(1) <= NOT \REGA|DOUT\(1);
+\PC|ALT_INV_DOUT\(0) <= NOT \PC|DOUT\(0);
 \REGA|ALT_INV_DOUT\(0) <= NOT \REGA|DOUT\(0);
+\PC|ALT_INV_DOUT\(1) <= NOT \PC|DOUT\(1);
+\REGA|ALT_INV_DOUT\(1) <= NOT \REGA|DOUT\(1);
 
 \PC_OUT[0]~output\ : cyclonev_io_obuf
 -- pragma translate_off

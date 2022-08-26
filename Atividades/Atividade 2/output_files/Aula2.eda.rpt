@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Aula2
-Fri Aug 26 13:44:58 2022
+Fri Aug 26 15:15:57 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Aug 26 13:44:58 2022 ;
+; EDA Netlist Writer Status ; Successful - Fri Aug 26 15:15:57 2022 ;
 ; Revision Name             ; Aula2                                 ;
 ; Top-level Entity Name     ; Aula2                                 ;
 ; Family                    ; Cyclone V                             ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                                   ;
-+------------------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                              ;
-+------------------------------------------------------------------------------------------------------------------------------+
-; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim//Aula2.vho ;
-+------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                            ;
++---------------------------------------------------------------------------------------+
+; Generated Files                                                                       ;
++---------------------------------------------------------------------------------------+
+; /home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim//Aula2.vho ;
++---------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -95,15 +95,15 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Aug 26 13:44:57 2022
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
-Info (119006): Selected device 5CGXFC7C7F23C8 for design "Aula2"
+    Info: Processing started: Fri Aug 26 15:15:56 2022
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+Info (119006): Selected device 5CEBA4F23C7 for design "Aula2"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file Aula2.vho in folder "C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file Aula2.vho in folder "/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4725 megabytes
-    Info: Processing ended: Fri Aug 26 13:44:58 2022
+    Info: Peak virtual memory: 664 megabytes
+    Info: Processing ended: Fri Aug 26 15:15:57 2022
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

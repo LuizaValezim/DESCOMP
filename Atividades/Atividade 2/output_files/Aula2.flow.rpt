@@ -1,5 +1,5 @@
 Flow report for Aula2
-Fri Aug 26 13:44:58 2022
+Fri Aug 26 15:15:57 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,12 +41,12 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Aug 26 13:44:58 2022       ;
+; Flow Status                     ; Successful - Fri Aug 26 15:15:57 2022       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; Aula2                                       ;
 ; Top-level Entity Name           ; Aula2                                       ;
 ; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CGXFC7C7F23C8                              ;
+; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 7                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/26/2022 13:43:42 ;
+; Start date & time ; 08/26/2022 15:09:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Aula2               ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 1096041059628.166153222208416          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 345042561876.166153734404757           ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -98,36 +98,66 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4848 MB             ; 00:00:34                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4721 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4725 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4721 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4725 MB             ; 00:00:01                           ;
-; Total                ; 00:00:19     ; --                      ; --                  ; 00:00:38                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 476 MB              ; 00:00:17                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 660 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 664 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 660 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 665 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 661 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 665 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 660 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 664 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 660 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 664 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 660 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 664 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 660 MB              ; 00:00:00                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 664 MB              ; 00:00:00                           ;
+; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:17                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; Notebook-Luiza   ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Notebook-Luiza   ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Notebook-Luiza   ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Notebook-Luiza   ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Notebook-Luiza   ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++---------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                             ;
++----------------------+-----------------------+----------------+------------+----------------+
+; Module Name          ; Machine Hostname      ; OS Name        ; OS Version ; Processor type ;
++----------------------+-----------------------+----------------+------------+----------------+
+; Analysis & Synthesis ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
+; EDA Netlist Writer   ; ellen-virtual-machine ; Ubuntu 22.04.1 ; 22         ; x86_64         ;
++----------------------+-----------------------+----------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Aula2 -c Aula2
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Waveform.vwf" --testbench_file="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim/Waveform.vwf.vht"
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/Waveform.vwf" --testbench_file="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim/Waveform.vwf.vht"
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computação/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform1.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform1.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform1.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform1.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform2.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform2.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform2.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform2.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform2.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform2.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform2.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform2.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/Waveform2.vwf" --testbench_file="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/Waveform2.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Atividade 2/simulation/qsim/" Aula2 -c Aula2
 
 
 
