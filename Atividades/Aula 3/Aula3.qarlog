@@ -1,0 +1,26 @@
+Quartus Prime Archive log --	/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/Aula3.qarlog
+
+Archive:	/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/Aula3.qar
+Date:		Thu Sep  8 12:16:18 2022
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/Aula3.qpf
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/Aula3.qsf
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/TopLevel.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/ULASomaSub.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/decoderInstru.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/edgeDetector.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/memoriaRAM.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/memoriaROM.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/muxGenerico2x1.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/output_files/Aula3.flow.rpt
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/output_files/Aula3.map.rpt
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/output_files/Aula3.map.summary
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/registradorGenerico.vhd
+/home/ellen/Desktop/DesComp/DESCOMP/Atividades/Aula 3/somaConstante.vhd
+/home/ellen/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
