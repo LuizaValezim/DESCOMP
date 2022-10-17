@@ -1,0 +1,105 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity logica_7seg is
+	port(
+		 CLOCK_50 : in std_logic;
+		 MEM_ADDRESS: out std_logic_vector(8 downto 0);
+		 ADD_OUT: out std_logic_vector(larguraDados - 1 downto 0);
+		 HEX0			: out std_logic_vector	(6 downto 0);
+		 HEX1			: out std_logic_vector	(6 downto 0);
+		 HEX2			: out std_logic_vector	(6 downto 0);
+		 HEX3			: out std_logic_vector	(6 downto 0);
+		 HEX4			: out std_logic_vector	(6 downto 0);
+		 HEX5			: out std_logic_vector	(6 downto 0)
+	);
+	
+	
+end entity;
+
+architecture arch_name of logica_7seg is
+
+  signal CLK : std_logic;
+  signal MEM_Write: std_logic;
+  signal MEM_OUT: std_logic_vector(larguraDados - 1 downto 0);
+  signal MEM_ADD: std_logic_vector(8 downto 0);
+  signal decoder_Habilita_OUT: std_logic_vector(7 downto 0);
+  signal decoder_Posicao_OUT: std_logic_vector(7 downto 0);
+  signal Reg_A : std_logic_vector(larguraDados - 1 downto 0);
+  alias DATA_ADDRESS_A5 : std_logic is MEM_ADD(5);
+
+  alias MEM_Habilita: std_logic is decoder_Habilita_OUT(0); 
+
+
+begin
+
+	REG_HEX0 : entity work.reg_hex
+			 port map (
+						CLK => CLK,
+						DATA_OUT => Reg_A(3 downto 0),
+						DATA_ADDRESS_A5 => Data_Address_A5,
+					   Decoder_Posicao => decoder_Posicao_OUT,
+						habilita => decoder_Habilita_OUT(0),
+						escrita => MEM_Write,
+						HEX => HEX0;
+	);
+	
+	REG_HEX1 : entity work.reg_hex
+			 port map (
+						CLK => CLK,
+						DATA_OUT => Reg_A(3 downto 0),
+						DATA_ADDRESS_A5 => Data_Address_A5,
+					   Decoder_Posicao => decoder_Posicao_OUT,
+						habilita => decoder_Habilita_OUT(1),
+						escrita => MEM_Write,
+						HEX => HEX1;
+	);
+	
+	REG_HEX2 : entity work.reg_hex
+			 port map (
+						CLK => CLK,
+						DATA_OUT => Reg_A(3 downto 0),
+						DATA_ADDRESS_A5 => Data_Address_A5,
+					   Decoder_Posicao => decoder_Posicao_OUT,
+						habilita => decoder_Habilita_OUT(2),
+						escrita => MEM_Write,
+						HEX => HEX2;
+	);
+	
+	REG_HEX3 : entity work.reg_hex
+			 port map (
+						CLK => CLK,
+						DATA_OUT => Reg_A(3 downto 0),
+						DATA_ADDRESS_A5 => Data_Address_A5,
+					   Decoder_Posicao => decoder_Posicao_OUT,
+						habilita => decoder_Habilita_OUT(3),
+						escrita => MEM_Write,
+						HEX => HEX3;
+	);
+	
+	REG_HEX4 : entity work.reg_hex
+			 port map (
+						CLK => CLK,
+						DATA_OUT => Reg_A(3 downto 0),
+						DATA_ADDRESS_A5 => Data_Address_A5,
+					   Decoder_Posicao => decoder_Posicao_OUT,
+						habilita => decoder_Habilita_OUT(4),
+						escrita => MEM_Write,
+						HEX => HEX4;
+	);
+	
+	REG_HEX5 : entity work.reg_hex
+			 port map (
+						CLK => CLK,
+						DATA_OUT => Reg_A(3 downto 0),
+						DATA_ADDRESS_A5 => Data_Address_A5,
+					   Decoder_Posicao => decoder_Posicao_OUT,
+						habilita => decoder_Habilita_OUT(5),
+						escrita => MEM_Write,
+						HEX => HEX5;
+	);
+	
+	ADD_OUT <= MEM_OUT;
+	MEM_ADDRESS <= MEM_ADD; 
+					  
+end architecture;
