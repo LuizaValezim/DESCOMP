@@ -1,9 +1,9 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity registradorGenerico_4bits is
+entity registradorGenerico is
     generic (
-        larguraDados : natural := 4
+        larguraDados : natural := 8
     );
     port (DIN : in std_logic_vector(larguraDados-1 downto 0);
        DOUT : out std_logic_vector(larguraDados-1 downto 0);
@@ -12,7 +12,7 @@ entity registradorGenerico_4bits is
         );
 end entity;
 
-architecture comportamento of registradorGenerico_4bits is
+architecture comportamento of registradorGenerico is
 begin
     -- In Altera devices, register signals have a set priority.
     -- The HDL design should reflect this priority.

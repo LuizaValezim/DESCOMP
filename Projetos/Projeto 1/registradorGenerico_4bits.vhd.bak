@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity registradorGenerico_4bits is
+entity registradorGenerico is
     generic (
         larguraDados : natural := 4
     );

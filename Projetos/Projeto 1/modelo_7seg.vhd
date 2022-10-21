@@ -1,104 +1,131 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity modelo_7seg is
+entity modelo_7Seg is
 	port(
-		 CLOCK_50 : in std_logic;
-		 MEM_ADDRESS: out std_logic_vector(8 downto 0);
-		 ADD_OUT: out std_logic_vector(larguraDados - 1 downto 0);
-		 HEX0			: out std_logic_vector	(6 downto 0);
-		 HEX1			: out std_logic_vector	(6 downto 0);
-		 HEX2			: out std_logic_vector	(6 downto 0);
-		 HEX3			: out std_logic_vector	(6 downto 0);
-		 HEX4			: out std_logic_vector	(6 downto 0);
-		 HEX5			: out std_logic_vector	(6 downto 0)
+		CLK: in std_logic;
+		DATA_OUT: in std_logic_vector(3 downto 0);
+		DATA_ADDRESS_A5 : in std_logic;
+		DecoderPosicao: in std_logic_vector (7 downto 0);
+		saida_bloco4 : in std_logic;
+		escrita : in std_logic;
+		HEX0			: out std_logic_vector	(6 downto 0);
+	   HEX1			: out std_logic_vector	(6 downto 0);
+	   HEX2			: out std_logic_vector	(6 downto 0);
+	   HEX3			: out std_logic_vector	(6 downto 0);
+	   HEX4			: out std_logic_vector	(6 downto 0);
+	   HEX5			: out std_logic_vector	(6 downto 0)
 	);
 	
 	
 end entity;
 
-architecture arch_name of modelo_7seg is
+architecture arch_name of modelo_7Seg is
 
-  signal CLK : std_logic;
-  signal MEM_Write: std_logic;
-  signal MEM_OUT: std_logic_vector(larguraDados - 1 downto 0);
-  signal MEM_ADD: std_logic_vector(8 downto 0);
-  signal decoder_Habilita_OUT: std_logic_vector(7 downto 0);
-  signal decoder_Posicao_OUT: std_logic_vector(7 downto 0);
-  signal Reg_A : std_logic_vector(larguraDados - 1 downto 0);
-  alias DATA_ADDRESS_A5 : std_logic is MEM_ADD(5);
-  alias MEM_Habilita: std_logic is decoder_Habilita_OUT(0); 
+	signal hex_0: std_logic_vector(3 downto 0);
+	signal hex_1: std_logic_vector(3 downto 0);
+	signal hex_2: std_logic_vector(3 downto 0);
+	signal hex_3: std_logic_vector(3 downto 0);
+	signal hex_4: std_logic_vector(3 downto 0);
+	signal hex_5: std_logic_vector(3 downto 0);
 
 
 begin
 
-	REG_HEX0 : entity work.reg_hex
+	REG0 : entity work.registradorGenerico generic map (larguraDados => 4)
 			 port map (
+						DIN => DATA_OUT,
+						DOUT => hex_0,
+						ENABLE => (saida_bloco4 AND DecoderPosicao(0) AND escrita AND DATA_ADDRESS_A5),
 						CLK => CLK,
-						DATA_OUT => Reg_A(3 downto 0),
-						DATA_ADDRESS_A5 => Data_Address_A5,
-					   Decoder_Posicao => decoder_Posicao_OUT,
-						habilita => decoder_Habilita_OUT(0),
-						escrita => MEM_Write,
-						HEX => HEX0;
-	);
-	
-	REG_HEX1 : entity work.reg_hex
+						RST => '0');
+
+	H0 :  entity work.conversorHex7Seg
+        port map(
+					  dadoHex => hex_0,
+                 apaga =>  '0',
+                 negativo => '0',
+                 overFlow =>  '0',
+                 saida7seg => HEX0);
+					  
+	REG1 : entity work.registradorGenerico generic map (larguraDados => 4)
 			 port map (
+						DIN => DATA_OUT,
+						DOUT => hex_1,
+						ENABLE => (saida_bloco4 AND DecoderPosicao(1) AND escrita AND DATA_ADDRESS_A5),
 						CLK => CLK,
-						DATA_OUT => Reg_A(3 downto 0),
-						DATA_ADDRESS_A5 => Data_Address_A5,
-					   Decoder_Posicao => decoder_Posicao_OUT,
-						habilita => decoder_Habilita_OUT(1),
-						escrita => MEM_Write,
-						HEX => HEX1;
-	);
-	
-	REG_HEX2 : entity work.reg_hex
+						RST => '0');
+					  
+	H1 :  entity work.conversorHex7Seg
+        port map(
+					  dadoHex => hex_1,
+                 apaga =>  '0',
+                 negativo => '0',
+                 overFlow =>  '0',
+                 saida7seg => HEX1);
+					  
+	REG2 : entity work.registradorGenerico generic map (larguraDados => 4)
 			 port map (
+						DIN => DATA_OUT,
+						DOUT => hex_2,
+						ENABLE => (saida_bloco4 AND DecoderPosicao(2) AND escrita AND DATA_ADDRESS_A5),
 						CLK => CLK,
-						DATA_OUT => Reg_A(3 downto 0),
-						DATA_ADDRESS_A5 => Data_Address_A5,
-					   Decoder_Posicao => decoder_Posicao_OUT,
-						habilita => decoder_Habilita_OUT(2),
-						escrita => MEM_Write,
-						HEX => HEX2;
-	);
-	
-	REG_HEX3 : entity work.reg_hex
+						RST => '0');
+					  
+	H2 :  entity work.conversorHex7Seg
+        port map(
+					  dadoHex => hex_2,
+                 apaga =>  '0',
+                 negativo => '0',
+                 overFlow =>  '0',
+                 saida7seg => HEX2);
+					  
+	REG3 : entity work.registradorGenerico generic map (larguraDados => 4)
 			 port map (
+						DIN => DATA_OUT,
+						DOUT => hex_3,
+						ENABLE => (saida_bloco4 AND DecoderPosicao(3) AND escrita AND DATA_ADDRESS_A5),
 						CLK => CLK,
-						DATA_OUT => Reg_A(3 downto 0),
-						DATA_ADDRESS_A5 => Data_Address_A5,
-					   Decoder_Posicao => decoder_Posicao_OUT,
-						habilita => decoder_Habilita_OUT(3),
-						escrita => MEM_Write,
-						HEX => HEX3;
-	);
-	
-	REG_HEX4 : entity work.reg_hex
+						RST => '0');
+					  
+	H3 :  entity work.conversorHex7Seg
+        port map(
+					  dadoHex => hex_3,
+                 apaga =>  '0',
+                 negativo => '0',
+                 overFlow =>  '0',
+                 saida7seg => HEX3);
+
+	REG4 : entity work.registradorGenerico generic map (larguraDados => 4)
 			 port map (
+						DIN => DATA_OUT,
+						DOUT => hex_4,
+						ENABLE => (saida_bloco4 AND DecoderPosicao(4) AND escrita AND DATA_ADDRESS_A5),
 						CLK => CLK,
-						DATA_OUT => Reg_A(3 downto 0),
-						DATA_ADDRESS_A5 => Data_Address_A5,
-					   Decoder_Posicao => decoder_Posicao_OUT,
-						habilita => decoder_Habilita_OUT(4),
-						escrita => MEM_Write,
-						HEX => HEX4;
-	);
-	
-	REG_HEX5 : entity work.reg_hex
+						RST => '0');
+
+	H4 :  entity work.conversorHex7Seg
+        port map(
+					  dadoHex => hex_4 ,
+                 apaga =>  '0',
+                 negativo => '0',
+                 overFlow =>  '0',
+                 saida7seg => HEX4); 
+					  
+	REG5 : entity work.registradorGenerico generic map (larguraDados => 4)
 			 port map (
+						DIN => DATA_OUT,
+						DOUT => hex_5,
+						ENABLE => (saida_bloco4 AND DecoderPosicao(5) AND escrita AND DATA_ADDRESS_A5),
 						CLK => CLK,
-						DATA_OUT => Reg_A(3 downto 0),
-						DATA_ADDRESS_A5 => Data_Address_A5,
-					   Decoder_Posicao => decoder_Posicao_OUT,
-						habilita => decoder_Habilita_OUT(5),
-						escrita => MEM_Write,
-						HEX => HEX5;
-	);
-	
-	ADD_OUT <= MEM_OUT;
-	MEM_ADDRESS <= MEM_ADD; 
+						RST => '0');
+					  
+	H5 :  entity work.conversorHex7Seg
+        port map(
+					  dadoHex => hex_5,
+                 apaga =>  '0',
+                 negativo => '0',
+                 overFlow =>  '0',
+                 saida7seg => HEX5);
 					  
 end architecture;
