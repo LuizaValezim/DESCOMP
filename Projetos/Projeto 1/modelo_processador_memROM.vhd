@@ -8,17 +8,13 @@ entity modelo_processador_memROM is
 		Data_Address_A5 : in std_logic;
 		Decoder_Posicao: in std_logic;
 		habilita : in std_logic;
-		escrita : in std_logic;
-		HEX			: out std_logic_vector	(6 downto 0)
+		escrita : in std_logic
 	);
 	
 	
 end entity;
 
 architecture arch_name of modelo_processador_memROM is
-
-	signal hex: std_logic_vector(3 downto 0);
-
 
 begin
 	
@@ -31,7 +27,6 @@ begin
 					 DATA_OUT => Reg_A,
 					 DATA_ADDRESS => MEM_ADD,
 					 Palavra => Palavra_processador,
-					 EQUAL_FLAG => EQUAL_FLAG,
 					 MEM_Read => MEM_Read,
 					 MEM_Write => MEM_Write
 				); 

@@ -59,7 +59,7 @@ architecture arquitetura of contador is
   alias Endereco : std_logic_vector (larguraEnderecos-1 downto 0) is PC_OUT_processador(larguraEnderecos-1 downto 0);
   alias DecoderBloco_IN : std_logic_vector (2 downto 0) is MEM_ADD(8 downto 6);
 
-  alias Data_Address_5 : std_logic is MEM_ADD(5);
+  alias Data_Address_A5 : std_logic is MEM_ADD(5);
   alias DecoderPosicao_IN : std_logic_vector (2 downto 0) is MEM_ADD(2 downto 0);
 
   alias MEM_Habilita: std_logic is decoder_Habilita_OUT(0); 
@@ -150,7 +150,7 @@ end generate;
 					 endereco_LED => decoder_Posicao_OUT(2 downto 0),
 					 habilita => decoder_Habilita_OUT(4),
 					 escrita => MEM_Write,
-					 DATA_ADDRESS_A5 => Data_Address_5,		
+					 DATA_ADDRESS_A5 => Data_Address_A5,		
 					 DATA_OUT => Reg_A,
 					 conjunto_LED => LEDR(7 downto 0),
 					 LED_endereco1 => LEDR(8),
@@ -162,7 +162,7 @@ end generate;
 			  port map(
 					CLK => CLK, 
 					DATA_OUT => Reg_A(3 downto 0),
-					DATA_ADDRESS_5 => Data_Address_5,
+					DATA_ADDRESS_A5 => Data_Address_A5,
 					DecoderPosicao => decoder_Posicao_OUT,
 					saida_bloco4 => decoder_Habilita_OUT(4),
 					escrita => MEM_Write,
@@ -174,10 +174,10 @@ end generate;
 					HEX5 => HEX5
 	);
 	
-	KEYS: entity work.modelo_key generic map(dataWidth => 8)
+	KEY_0: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 			port map(
 					entrada(0) =>  DEBOUNCER_OUT_0,
-					habilita => (MEM_Read AND Data_Address_5 AND decoder_Posicao_OUT(0) AND  decoder_Habilita_OUT(5)),
+					habilita => (MEM_Read AND Data_Address_A5 AND decoder_Posicao_OUT(0) AND  decoder_Habilita_OUT(5)),
 					saida(0) => MEM_OUT(0)
 			);
 			
@@ -185,7 +185,7 @@ end generate;
 	KEY_1: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 			port map(
 					entrada(0) => DEBOUNCER_OUT_1,
-					habilita => (MEM_Read AND Data_Address_5 AND decoder_Posicao_OUT(1) AND  decoder_Habilita_OUT(5)),
+					habilita => (MEM_Read AND Data_Address_A5 AND decoder_Posicao_OUT(1) AND  decoder_Habilita_OUT(5)),
 					saida(0) => MEM_OUT(0)
 			);
 
@@ -193,7 +193,7 @@ end generate;
 	KEY_2: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 			port map(
 					entrada(0) => DEBOUNCER_OUT_2,
-					habilita => (MEM_Read AND Data_Address_5 AND decoder_Posicao_OUT(2) AND  decoder_Habilita_OUT(5)),
+					habilita => (MEM_Read AND Data_Address_A5 AND decoder_Posicao_OUT(2) AND  decoder_Habilita_OUT(5)),
 					saida(0) => MEM_OUT(0)
 			);
 
@@ -201,28 +201,28 @@ end generate;
 	KEY_3: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 			port map(
 					entrada(0) => DEBOUNCER_OUT_3,
-					habilita => (MEM_Read AND Data_Address_5 AND decoder_Posicao_OUT(3) AND  decoder_Habilita_OUT(5)),
+					habilita => (MEM_Read AND Data_Address_A5 AND decoder_Posicao_OUT(3) AND  decoder_Habilita_OUT(5)),
 					saida(0) => MEM_OUT(0)
 			);	
 			
 	SW_0_7: entity work.buffer_3_state_8portas generic map(dataWidth => 8)
 				port map(
 						entrada => SW(7 downto 0),
-						habilita => (MEM_Read AND NOT(Data_Address_5) AND decoder_Posicao_OUT(0) AND  decoder_Habilita_OUT(5)),
+						habilita => (MEM_Read AND NOT(Data_Address_A5) AND decoder_Posicao_OUT(0) AND  decoder_Habilita_OUT(5)),
 						saida => MEM_OUT
 				);
 				
 	SW_8: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 				port map(
 						entrada(0) => SW(8),
-						habilita => (MEM_Read AND NOT(Data_Address_5) AND decoder_Posicao_OUT(1) AND  decoder_Habilita_OUT(5)),
+						habilita => (MEM_Read AND NOT(Data_Address_A5) AND decoder_Posicao_OUT(1) AND  decoder_Habilita_OUT(5)),
 						saida(0) => MEM_OUT(0)
 				);
 				
 	SW_9: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 			port map(
 					entrada(0) => SW(9),
-					habilita => (MEM_Read AND NOT(Data_Address_5) AND decoder_Posicao_OUT(2) AND  decoder_Habilita_OUT(5)),
+					habilita => (MEM_Read AND NOT(Data_Address_A5) AND decoder_Posicao_OUT(2) AND  decoder_Habilita_OUT(5)),
 					saida(0) => MEM_OUT(0)
 			);
 			
@@ -252,7 +252,7 @@ end generate;
 	FPGA_RESET: entity work.buffer_3_state_8portas generic map(dataWidth => 1)
 			port map(
 					entrada(0) => FPGA_RESET_N,
-					habilita	=> (MEM_Read AND Data_Address_5 AND decoder_Posicao_OUT(4) AND  decoder_Habilita_OUT(5)),
+					habilita	=> (MEM_Read AND Data_Address_A5 AND decoder_Posicao_OUT(4) AND  decoder_Habilita_OUT(5)),
 					saida(0) => MEM_OUT(0)
 	);	
 	

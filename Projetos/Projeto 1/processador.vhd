@@ -11,7 +11,6 @@ entity processador is
     CLK : in std_logic;
 	 instruction: in std_logic_vector(14 downto 0);
 	 DATA_IN: in std_logic_vector(larguraDados - 1 downto 0);
-	 
     ROM_Address: out std_logic_vector(larguraEnderecos-1 downto 0);
 	 DATA_OUT: out std_logic_vector(larguraDados-1 downto 0);
 	 DATA_ADDRESS: out std_logic_vector(8 downto 0);
@@ -113,7 +112,7 @@ begin
 						 entradaB => ULA_B_IN,
 						 saida => ULA_OUT,
 						 seletor => Operacao_ULA,
-						 flagEqual => ULA_FLAG);	
+						 flagEqual => ULA_FLAG);
 						
 	-- Banco de Registradores				
 	BANCO_REGISTRADORES: entity work.bancoRegistradores generic map (larguraDados => larguraDados, larguraEndBancoRegs => 2) 	
