@@ -1,0 +1,356 @@
+SETUP:
+LDI $0, R0      
+LDI $1, R1      
+LDI $9, R2      
+LDI $10, R3     
+STA @256, R0   
+STA @257, R0  
+STA @258, R0  
+STA @288, R0    
+STA @289, R0   
+STA @290, R0   
+STA @291, R0   
+STA @292, R0   
+STA @293, R0    
+STA @0, R0      # MEM[0] -> unidades
+STA @1, R0      # MEM[1] -> dezenas
+STA @2, R0      # MEM[2] -> centenas
+STA @3, R0      # MEM[3] -> unidades de milhares
+STA @4, R0      # MEM[4] -> dezenas de milhar
+STA @5, R0      # MEM[5] -> centenas de milhar
+STA @6, R0      # MEM[6] -> flag de parar contagem
+STA @7, R0      
+STA @8, R1      # MEM[8] -> variavel de incremento (1 unidade)
+STA @9, R3      # MEM[9] -> variavel de comparacao (1 dezena)
+STA @10, R2     # MEM[10] -> limite para unidade
+STA @11, R2     # MEM[11] -> limite para dezena
+STA @12, R2     # MEM[12] -> limite para centena
+STA @13, R2     # MEM[13] -> limite para unidade de milhar
+STA @14, R2     # MEM[14] -> limite para dezena de milhar
+STA @15, R2     # MEM[15] -> limite para centena de milhar
+
+LOOP:
+NOP              
+LDA @6, R0       
+CEQ @8, R0       
+JEQ @39          
+LDA @352, R0     
+ANDI @1, R0      
+CEQ @7, R0       
+JEQ @39          
+JSR @INC  
+NOP              
+LDA @353, R1     
+ANDI @1, R1      
+CEQ @7, R1      
+JEQ @45           
+STA @510, R0    
+STA @6, R3      
+CEQ @7, R3      
+JEQ @LIM_UNIDADE 
+LDA @7, R3      
+STA @6, R3    
+NOP              
+JSR @CHECK 
+NOP             
+LDA @354, R1    
+ANDI @1, R1      
+CEQ @7, R1      
+JEQ @53         
+JSR @DEC  
+NOP              
+LDA @356, R3     
+ANDI @1, R3      
+CEQ @8, R3      
+JEQ @58          
+JSR @RESTART 
+JSR @UPD_DISPLAY 
+JMP @LOOP  
+
+INC:
+STA @511, R0     
+LDA @6, R1       
+CEQ @8, R1       
+JEQ @120 
+
+INC_UNIDADE:
+LDA @0, R0      
+SOMA @8, R0      
+CEQ @9, R0       
+JEQ @INC_DEZENA  
+STA @0, R0       
+RET       
+
+INC_DEZENA:
+LDA @7, R0      
+STA @0, R0      
+LDA @1, R0      
+SOMA @8, R0     
+CEQ @9, R0     
+JEQ @INC_CENTENA 
+STA @1, R0      
+RET            
+
+INC_CENTENA:
+LDA @7, R0      
+STA @1, R0      
+LDA @2, R0     
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @INC_UNIMILHAR 
+STA @2, R0      
+RET             
+
+INC_UNIMILHAR:
+LDA @7, R0      
+STA @2, R0      
+LDA @3, R0      
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @INC_DEZMILHAR  
+STA @3, R0      
+RET             
+
+INC_DEZMILHAR:
+LDA @7, R0      
+STA @3, R0     
+LDA @4, R0      
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @INC_CENTMILHAR 
+STA @4, R0      
+RET            
+INC_CENTMILHAR:
+LDA @7, R0      
+STA @4, R0      
+LDA @5, R0      
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @OVERFLOW   
+STA @5, R0      
+RET             
+
+OVERFLOW:
+LDA @8, R2     
+STA @6, R2      
+STA @258, R2    
+LDI $9, R3      
+STA @0, R3      
+STA @1, R3      
+STA @2, R3     
+STA @3, R3      
+STA @4, R3     
+STA @5, R3      
+RET
+
+LIM_UNIDADE:
+LDA @8, R1      
+STA @256, R1    
+LDA @353, R0   
+ANDI @1, R0     
+CEQ @7, R0     
+LDA @320, R2   
+JEQ @LIM_UNIDADE 
+STA @10, R2   
+STA @510, R0   
+
+LIM_DEZENA:
+LDI $2, R1      
+STA @256, R1    
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_DEZENA 
+STA @11, R2     
+STA @510, R0    
+
+LIM_CENTENA:
+LDI $4, R1      
+STA @256, R1    
+LDA @353, R0   
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_CENTENA  
+STA @12, R2   
+STA @510, R0    
+
+LIM_MILHAR:
+LDI $8, R1      
+STA @256, R1   
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2   
+JEQ @LIM_UNIMILHAR  
+STA @13, R2     
+STA @510, R0    
+
+LIM_DEZMILHAR:
+LDI $16, R1     
+STA @256, R1   
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_DEZMILHAR 
+STA @14, R2     
+STA @510, R0   
+
+LIM_CENTMILHAR:
+LDI $32, R1    
+STA @256, R1    
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_CENTMILHAR 
+STA @15, R2     
+STA @510, R0    
+LDA @7, R3     
+STA @256, R3    
+RET
+
+CHECK:
+NOP             
+
+LIMITE_UNIDADE:
+LDA @0, R0      
+CEQ @10, R0     
+JEQ @CONFERE_LIMITE_DEZENA 
+RET  
+
+LIMITE_DEZENA:
+LDA @1, R1      
+CEQ @11, R1     
+JEQ @CONFERE_LIMITE_CENTENA 
+RET           
+
+LIMITE_CENTENA:
+LDA @2, R2      
+CEQ @12, R2     
+JEQ @CONFERE_LIMITE_MILHAR 
+RET           
+
+LIMITE_MILHAR:
+LDA @3, R3      
+CEQ @13, R3     
+JEQ @CONFERE_LIMITE_DEZMILHAR 
+RET            
+
+LIMITE_DEZMILHAR:
+LDA @4, R0      
+CEQ @14, R0     
+JEQ @CONFERE_LIMITE_CENTMILHAR 
+RET             
+
+LIMITE_CENTMILHAR:
+LDA @5, R1      
+CEQ @15, R1     
+JEQ @ATIVAR_FLAG_INIBIR_CONTAGEM 
+RET            
+
+ATIVAR_FLAG_INIBIR_CONTAGEM:
+LDA @8, R2      
+STA @257, R2    
+STA @6, R2      
+RET
+
+RESTART:
+LDA @7, R0      
+STA @0, R0      
+STA @1, R0      
+STA @2, R0      
+STA @3, R0      
+STA @4, R0     
+STA @5, R0     
+STA @6, R0     
+STA @257, R0   
+STA @258, R0    
+RET
+
+UPD_DISPLAY:
+LDA @0, R0      
+STA @288, R0    
+LDA @1, R0      
+STA @289, R0    
+LDA @2, R0      
+STA @290, R0    
+LDA @3, R0      
+STA @291, R0    
+LDA @4, R0      
+STA @292, R0    
+LDA @5, R0     
+STA @293, R0   
+RET
+
+DEC:
+STA @508, R0    
+LDA @7, R1     
+STA @6, R1     
+STA @257, R1    
+
+DEC_UNIDADE:
+LDA @0, R2      
+CEQ @7, R2      
+JEQ @DEC_DEZENA 
+SUB @8, R2     
+STA @0, R2      
+RET
+
+DEC_DEZENA:
+LDI $9, R3      
+STA @0, R3      
+LDA @1, R0      
+CEQ @7, R0     
+JEQ @DEC_CENTENA 
+SUB @8, R0     
+STA @1, R0     
+RET
+
+DEC_CENTENA:
+LDI $9, R0      
+STA @1, R0     
+LDA @2, R1     
+CEQ @7, R1     
+JEQ @DEC_MILHAR 
+SUB @8, R1      
+STA @2, R1      
+RET
+
+DEC_MILHAR:
+LDI $9, R2     
+STA @2, R2      
+LDA @3, R3      
+CEQ @7, R3     
+JEQ @DEC_DEZMILHAR 
+SUB @8, R3     
+STA @3, R3      
+RET
+DEC_DEZMILHAR:
+LDI $9, R1     
+STA @3, R1      
+LDA @4, R0     
+CEQ @7, R0      
+JEQ @DEC_CENTMILHAR 
+SUB @8, R0     
+STA @4, R0     
+RET
+
+DEC_CENTMILHAR:
+LDI $9, R1     
+STA @4, R1      
+LDA @5, R2      
+CEQ @7, R2      
+LDA @7, R3      
+STA @0, R3     
+STA @1, R3     
+STA @2, R3     
+STA @3, R3      
+STA @4, R3      
+STA @5, R3      
+STA @258, R3    
+STA @257, R3    
+SUB @8, R2      
+STA @5, R2     

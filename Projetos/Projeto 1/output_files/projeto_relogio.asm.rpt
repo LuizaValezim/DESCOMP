@@ -1,5 +1,5 @@
 Assembler report for projeto_relogio
-Fri Oct 21 15:25:16 2022
+Sun Oct 23 19:28:12 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Oct 21 15:25:16 2022 ;
+; Assembler Status      ; Successful - Sun Oct 23 19:28:12 2022 ;
 ; Revision Name         ; projeto_relogio                       ;
 ; Top-level Entity Name ; contador                              ;
 ; Family                ; Cyclone V                             ;
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Oct 21 15:25:12 2022
+    Info: Processing started: Sun Oct 23 19:28:03 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off projeto_relogio -c projeto_relogio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4832 megabytes
-    Info: Processing ended: Fri Oct 21 15:25:16 2022
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Processing ended: Sun Oct 23 19:28:12 2022
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 
