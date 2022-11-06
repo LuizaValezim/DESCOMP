@@ -1,13 +1,16 @@
-|contador
+|relogio
 CLOCK_50 => edgedetector:gravar:detectorSub0.clk
 CLOCK_50 => edgedetector:gravar:detectorSub1.clk
 CLOCK_50 => edgedetector:gravar:detectorSub2.clk
 CLOCK_50 => edgedetector:gravar:detectorSub3.clk
 CLOCK_50 => processador:processador.CLK
+CLOCK_50 => divisorgenerico:incremento_normal.clk
+CLOCK_50 => divisorgenerico:incremento_acelerado.clk
 CLOCK_50 => modelo_led:modelo_led.CLK
 CLOCK_50 => modelo_7seg:modelo_7seg.CLK
-CLOCK_50 => memoriaram:RAM1.clk
+CLOCK_50 => memoriaram:RAM.clk
 KEY[0] => edgedetector:gravar:detectorSub0.entrada
+KEY[0] => muxgenerico2x1:MUX1.seletor_MUX
 KEY[1] => edgedetector:gravar:detectorSub1.entrada
 KEY[2] => edgedetector:gravar:detectorSub2.entrada
 KEY[3] => edgedetector:gravar:detectorSub3.entrada
@@ -59,14 +62,14 @@ MEM_ADDRESS[5] <= processador:processador.DATA_ADDRESS[5]
 MEM_ADDRESS[6] <= processador:processador.DATA_ADDRESS[6]
 MEM_ADDRESS[7] <= processador:processador.DATA_ADDRESS[7]
 MEM_ADDRESS[8] <= processador:processador.DATA_ADDRESS[8]
-MEM_OUTT[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[1] <= MEM_OUTT[1].DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[2] <= MEM_OUTT[2].DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[3] <= MEM_OUTT[3].DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[4] <= MEM_OUTT[4].DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[5] <= MEM_OUTT[5].DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[6] <= MEM_OUTT[6].DB_MAX_OUTPUT_PORT_TYPE
-MEM_OUTT[7] <= MEM_OUTT[7].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[0] <= MEM_OUT[0].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[1] <= MEM_OUT[1].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[2] <= MEM_OUT[2].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[3] <= MEM_OUT[3].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[4] <= MEM_OUT[4].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[5] <= MEM_OUT[5].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[6] <= MEM_OUT[6].DB_MAX_OUTPUT_PORT_TYPE
+MEM_OUTT[7] <= MEM_OUT[7].DB_MAX_OUTPUT_PORT_TYPE
 enderecoR[0] <= processador:processador.enderecoRG[0]
 enderecoR[1] <= processador:processador.enderecoRG[1]
 HEX0[0] <= modelo_7seg:modelo_7seg.HEX0[0]
@@ -113,39 +116,40 @@ HEX5[5] <= modelo_7seg:modelo_7seg.HEX5[5]
 HEX5[6] <= modelo_7seg:modelo_7seg.HEX5[6]
 
 
-|contador|edgeDetector:\gravar:detectorSub0
+|relogio|edgeDetector:\gravar:detectorSub0
 clk => saidaQ.CLK
 entrada => saida.IN1
 entrada => saidaQ.DATAIN
 saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|edgeDetector:\gravar:detectorSub1
+|relogio|edgeDetector:\gravar:detectorSub1
 clk => saidaQ.CLK
 entrada => saida.IN1
 entrada => saidaQ.DATAIN
 saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|edgeDetector:\gravar:detectorSub2
+|relogio|edgeDetector:\gravar:detectorSub2
 clk => saidaQ.CLK
 entrada => saida.IN1
 entrada => saidaQ.DATAIN
 saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|edgeDetector:\gravar:detectorSub3
+|relogio|edgeDetector:\gravar:detectorSub3
 clk => saidaQ.CLK
 entrada => saida.IN1
 entrada => saidaQ.DATAIN
 saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|processador:processador
+|relogio|processador:processador
 CLK => registradorgenerico:PC.CLK
+CLK => registradorgenerico:REG_RET.CLK
 CLK => bancoregistradores:BANCO_REGISTRADORES.clk
-CLK => registradorgenerico:REG.CLK
-CLK => flipflopgenerico:FLAG.CLK
+CLK => flipflopgenerico:flagEQ.CLK
+CLK => flipflopgenerico:flagLT.CLK
 instruction[0] => muxgenerico2x1:MUX1.entradaB_MUX[0]
 instruction[0] => muxgenerico4x1:MUX2.E1[0]
 instruction[0] => DATA_ADDRESS[0].DATAIN
@@ -226,13 +230,15 @@ Palavra[8] <= decoderinstr:decoderInstr.saida[8]
 Palavra[9] <= decoderinstr:decoderInstr.saida[9]
 Palavra[10] <= decoderinstr:decoderInstr.saida[10]
 Palavra[11] <= decoderinstr:decoderInstr.saida[11]
+Palavra[12] <= decoderinstr:decoderInstr.saida[12]
+Palavra[13] <= decoderinstr:decoderInstr.saida[13]
 enderecoRG[0] <= instruction[9].DB_MAX_OUTPUT_PORT_TYPE
 enderecoRG[1] <= instruction[10].DB_MAX_OUTPUT_PORT_TYPE
 MEM_Read <= decoderinstr:decoderInstr.saida[1]
 MEM_Write <= decoderinstr:decoderInstr.saida[0]
 
 
-|contador|processador:processador|registradorGenerico:PC
+|relogio|processador:processador|registradorGenerico:PC
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -280,7 +286,7 @@ RST => DOUT[7]~reg0.ACLR
 RST => DOUT[8]~reg0.ACLR
 
 
-|contador|processador:processador|somaConstante:incrementaPC
+|relogio|processador:processador|somaConstante:incrementaPC
 entrada[0] => Add0.IN18
 entrada[1] => Add0.IN17
 entrada[2] => Add0.IN16
@@ -301,7 +307,55 @@ saida[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 saida[8] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|processador:processador|muxGenerico2x1:MUX1
+|relogio|processador:processador|registradorGenerico:REG_RET
+DIN[0] => DOUT[0]~reg0.DATAIN
+DIN[1] => DOUT[1]~reg0.DATAIN
+DIN[2] => DOUT[2]~reg0.DATAIN
+DIN[3] => DOUT[3]~reg0.DATAIN
+DIN[4] => DOUT[4]~reg0.DATAIN
+DIN[5] => DOUT[5]~reg0.DATAIN
+DIN[6] => DOUT[6]~reg0.DATAIN
+DIN[7] => DOUT[7]~reg0.DATAIN
+DIN[8] => DOUT[8]~reg0.DATAIN
+DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[4] <= DOUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[5] <= DOUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[6] <= DOUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[7] <= DOUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[8] <= DOUT[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT[8]~reg0.ENA
+ENABLE => DOUT[7]~reg0.ENA
+ENABLE => DOUT[6]~reg0.ENA
+ENABLE => DOUT[5]~reg0.ENA
+ENABLE => DOUT[4]~reg0.ENA
+ENABLE => DOUT[3]~reg0.ENA
+ENABLE => DOUT[2]~reg0.ENA
+ENABLE => DOUT[1]~reg0.ENA
+ENABLE => DOUT[0]~reg0.ENA
+CLK => DOUT[0]~reg0.CLK
+CLK => DOUT[1]~reg0.CLK
+CLK => DOUT[2]~reg0.CLK
+CLK => DOUT[3]~reg0.CLK
+CLK => DOUT[4]~reg0.CLK
+CLK => DOUT[5]~reg0.CLK
+CLK => DOUT[6]~reg0.CLK
+CLK => DOUT[7]~reg0.CLK
+CLK => DOUT[8]~reg0.CLK
+RST => DOUT[0]~reg0.ACLR
+RST => DOUT[1]~reg0.ACLR
+RST => DOUT[2]~reg0.ACLR
+RST => DOUT[3]~reg0.ACLR
+RST => DOUT[4]~reg0.ACLR
+RST => DOUT[5]~reg0.ACLR
+RST => DOUT[6]~reg0.ACLR
+RST => DOUT[7]~reg0.ACLR
+RST => DOUT[8]~reg0.ACLR
+
+
+|relogio|processador:processador|muxGenerico2x1:MUX1
 entradaA_MUX[0] => saida_MUX.DATAA
 entradaA_MUX[1] => saida_MUX.DATAA
 entradaA_MUX[2] => saida_MUX.DATAA
@@ -336,7 +390,7 @@ saida_MUX[6] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 saida_MUX[7] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|processador:processador|muxGenerico4x1:MUX2
+|relogio|processador:processador|muxGenerico4x1:MUX2
 E0[0] => MUX_OUT.DATAB
 E0[1] => MUX_OUT.DATAB
 E0[2] => MUX_OUT.DATAB
@@ -390,71 +444,87 @@ MUX_OUT[7] <= MUX_OUT.DB_MAX_OUTPUT_PORT_TYPE
 MUX_OUT[8] <= MUX_OUT.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|processador:processador|ULASomaSub:ULA1
+|relogio|processador:processador|ULASomaSub:ULA1
 entradaA[0] => Add0.IN8
 entradaA[0] => Add1.IN16
+entradaA[0] => Add2.IN16
 entradaA[0] => and_op[0].IN0
 entradaA[1] => Add0.IN7
 entradaA[1] => Add1.IN15
+entradaA[1] => Add2.IN15
 entradaA[1] => and_op[1].IN0
 entradaA[2] => Add0.IN6
 entradaA[2] => Add1.IN14
+entradaA[2] => Add2.IN14
 entradaA[2] => and_op[2].IN0
 entradaA[3] => Add0.IN5
 entradaA[3] => Add1.IN13
+entradaA[3] => Add2.IN13
 entradaA[3] => and_op[3].IN0
 entradaA[4] => Add0.IN4
 entradaA[4] => Add1.IN12
+entradaA[4] => Add2.IN12
 entradaA[4] => and_op[4].IN0
 entradaA[5] => Add0.IN3
 entradaA[5] => Add1.IN11
+entradaA[5] => Add2.IN11
 entradaA[5] => and_op[5].IN0
 entradaA[6] => Add0.IN2
 entradaA[6] => Add1.IN10
+entradaA[6] => Add2.IN10
 entradaA[6] => and_op[6].IN0
 entradaA[7] => Add0.IN1
 entradaA[7] => Add1.IN9
+entradaA[7] => Add2.IN9
 entradaA[7] => and_op[7].IN0
 entradaB[0] => Add0.IN16
 entradaB[0] => and_op[0].IN1
 entradaB[0] => saida.DATAA
 entradaB[0] => saida.DATAB
 entradaB[0] => Add1.IN8
+entradaB[0] => Add2.IN8
 entradaB[1] => Add0.IN15
 entradaB[1] => and_op[1].IN1
 entradaB[1] => saida.DATAA
 entradaB[1] => saida.DATAB
 entradaB[1] => Add1.IN7
+entradaB[1] => Add2.IN7
 entradaB[2] => Add0.IN14
 entradaB[2] => and_op[2].IN1
 entradaB[2] => saida.DATAA
 entradaB[2] => saida.DATAB
 entradaB[2] => Add1.IN6
+entradaB[2] => Add2.IN6
 entradaB[3] => Add0.IN13
 entradaB[3] => and_op[3].IN1
 entradaB[3] => saida.DATAA
 entradaB[3] => saida.DATAB
 entradaB[3] => Add1.IN5
+entradaB[3] => Add2.IN5
 entradaB[4] => Add0.IN12
 entradaB[4] => and_op[4].IN1
 entradaB[4] => saida.DATAA
 entradaB[4] => saida.DATAB
 entradaB[4] => Add1.IN4
+entradaB[4] => Add2.IN4
 entradaB[5] => Add0.IN11
 entradaB[5] => and_op[5].IN1
 entradaB[5] => saida.DATAA
 entradaB[5] => saida.DATAB
 entradaB[5] => Add1.IN3
+entradaB[5] => Add2.IN3
 entradaB[6] => Add0.IN10
 entradaB[6] => and_op[6].IN1
 entradaB[6] => saida.DATAA
 entradaB[6] => saida.DATAB
 entradaB[6] => Add1.IN2
+entradaB[6] => Add2.IN2
 entradaB[7] => Add0.IN9
 entradaB[7] => and_op[7].IN1
 entradaB[7] => saida.DATAA
 entradaB[7] => saida.DATAB
 entradaB[7] => Add1.IN1
+entradaB[7] => Add2.IN1
 seletor[0] => Equal0.IN1
 seletor[0] => Equal1.IN0
 seletor[0] => Equal2.IN1
@@ -472,9 +542,10 @@ saida[5] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[6] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[7] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 flagEqual <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
+flagLessThan <= Add2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|processador:processador|bancoRegistradores:BANCO_REGISTRADORES
+|relogio|processador:processador|bancoRegistradores:BANCO_REGISTRADORES
 clk => registrador~10.CLK
 clk => registrador~0.CLK
 clk => registrador~1.CLK
@@ -521,55 +592,7 @@ saida[6] <= registrador.DATAOUT6
 saida[7] <= registrador.DATAOUT7
 
 
-|contador|processador:processador|registradorGenerico:REG
-DIN[0] => DOUT[0]~reg0.DATAIN
-DIN[1] => DOUT[1]~reg0.DATAIN
-DIN[2] => DOUT[2]~reg0.DATAIN
-DIN[3] => DOUT[3]~reg0.DATAIN
-DIN[4] => DOUT[4]~reg0.DATAIN
-DIN[5] => DOUT[5]~reg0.DATAIN
-DIN[6] => DOUT[6]~reg0.DATAIN
-DIN[7] => DOUT[7]~reg0.DATAIN
-DIN[8] => DOUT[8]~reg0.DATAIN
-DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[4] <= DOUT[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[5] <= DOUT[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[6] <= DOUT[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[7] <= DOUT[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[8] <= DOUT[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-ENABLE => DOUT[8]~reg0.ENA
-ENABLE => DOUT[7]~reg0.ENA
-ENABLE => DOUT[6]~reg0.ENA
-ENABLE => DOUT[5]~reg0.ENA
-ENABLE => DOUT[4]~reg0.ENA
-ENABLE => DOUT[3]~reg0.ENA
-ENABLE => DOUT[2]~reg0.ENA
-ENABLE => DOUT[1]~reg0.ENA
-ENABLE => DOUT[0]~reg0.ENA
-CLK => DOUT[0]~reg0.CLK
-CLK => DOUT[1]~reg0.CLK
-CLK => DOUT[2]~reg0.CLK
-CLK => DOUT[3]~reg0.CLK
-CLK => DOUT[4]~reg0.CLK
-CLK => DOUT[5]~reg0.CLK
-CLK => DOUT[6]~reg0.CLK
-CLK => DOUT[7]~reg0.CLK
-CLK => DOUT[8]~reg0.CLK
-RST => DOUT[0]~reg0.ACLR
-RST => DOUT[1]~reg0.ACLR
-RST => DOUT[2]~reg0.ACLR
-RST => DOUT[3]~reg0.ACLR
-RST => DOUT[4]~reg0.ACLR
-RST => DOUT[5]~reg0.ACLR
-RST => DOUT[6]~reg0.ACLR
-RST => DOUT[7]~reg0.ACLR
-RST => DOUT[8]~reg0.ACLR
-
-
-|contador|processador:processador|flipflopGenerico:FLAG
+|relogio|processador:processador|flipflopGenerico:flagEQ
 DIN => DOUT~reg0.DATAIN
 DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ENABLE => DOUT~reg0.ENA
@@ -577,110 +600,248 @@ CLK => DOUT~reg0.CLK
 RST => DOUT~reg0.ACLR
 
 
-|contador|processador:processador|modelo_desvio:DESVIO
+|relogio|processador:processador|flipflopGenerico:flagLT
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT~reg0.ENA
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
+
+
+|relogio|processador:processador|modelo_desvio:modelo_desvio
 JMP => Equal0.IN0
 JMP => Equal1.IN0
 JMP => Equal2.IN0
 JMP => Equal3.IN0
 JMP => Equal4.IN0
 JMP => Equal5.IN0
-JMP => Equal6.IN4
-JMP => Equal7.IN3
+JMP => Equal6.IN0
+JMP => Equal7.IN0
 JMP => Equal8.IN0
 JMP => Equal9.IN0
-RET => Equal0.IN4
-RET => Equal1.IN3
-RET => Equal2.IN1
-RET => Equal3.IN1
+JMP => Equal10.IN0
+JMP => Equal11.IN0
+JMP => Equal12.IN0
+JMP => Equal13.IN0
+JMP => Equal14.IN0
+JMP => Equal15.IN0
+JMP => Equal16.IN6
+JMP => Equal17.IN5
+JMP => Equal18.IN5
+JMP => Equal19.IN4
+JMP => Equal20.IN0
+JMP => Equal21.IN0
+JMP => Equal22.IN0
+JMP => Equal23.IN0
+RET => Equal0.IN6
+RET => Equal1.IN5
+RET => Equal2.IN5
+RET => Equal3.IN4
 RET => Equal4.IN1
 RET => Equal5.IN1
-RET => Equal6.IN0
-RET => Equal7.IN0
+RET => Equal6.IN1
+RET => Equal7.IN1
 RET => Equal8.IN1
 RET => Equal9.IN1
+RET => Equal10.IN1
+RET => Equal11.IN1
+RET => Equal12.IN1
+RET => Equal13.IN1
+RET => Equal14.IN1
+RET => Equal15.IN1
+RET => Equal16.IN0
+RET => Equal17.IN0
+RET => Equal18.IN0
+RET => Equal19.IN0
+RET => Equal20.IN1
+RET => Equal21.IN1
+RET => Equal22.IN1
+RET => Equal23.IN1
 JSR => Equal0.IN1
 JSR => Equal1.IN1
-JSR => Equal2.IN4
-JSR => Equal3.IN3
-JSR => Equal4.IN2
-JSR => Equal5.IN2
-JSR => Equal6.IN1
-JSR => Equal7.IN1
+JSR => Equal2.IN1
+JSR => Equal3.IN1
+JSR => Equal4.IN6
+JSR => Equal5.IN5
+JSR => Equal6.IN5
+JSR => Equal7.IN4
 JSR => Equal8.IN2
 JSR => Equal9.IN2
+JSR => Equal10.IN2
+JSR => Equal11.IN2
+JSR => Equal12.IN2
+JSR => Equal13.IN2
+JSR => Equal14.IN2
+JSR => Equal15.IN2
+JSR => Equal16.IN1
+JSR => Equal17.IN1
+JSR => Equal18.IN1
+JSR => Equal19.IN1
+JSR => Equal20.IN2
+JSR => Equal21.IN2
+JSR => Equal22.IN2
+JSR => Equal23.IN2
 JEQ => Equal0.IN2
 JEQ => Equal1.IN2
 JEQ => Equal2.IN2
 JEQ => Equal3.IN2
-JEQ => Equal4.IN3
-JEQ => Equal5.IN4
+JEQ => Equal4.IN2
+JEQ => Equal5.IN2
 JEQ => Equal6.IN2
 JEQ => Equal7.IN2
 JEQ => Equal8.IN3
 JEQ => Equal9.IN3
+JEQ => Equal10.IN3
+JEQ => Equal11.IN3
+JEQ => Equal12.IN5
+JEQ => Equal13.IN4
+JEQ => Equal14.IN6
+JEQ => Equal15.IN5
+JEQ => Equal16.IN2
+JEQ => Equal17.IN2
+JEQ => Equal18.IN2
+JEQ => Equal19.IN2
+JEQ => Equal20.IN3
+JEQ => Equal21.IN3
+JEQ => Equal22.IN3
+JEQ => Equal23.IN3
 FLAG_EQ => Equal0.IN3
-FLAG_EQ => Equal1.IN4
+FLAG_EQ => Equal1.IN6
 FLAG_EQ => Equal2.IN3
-FLAG_EQ => Equal3.IN4
-FLAG_EQ => Equal4.IN4
-FLAG_EQ => Equal5.IN3
+FLAG_EQ => Equal3.IN5
+FLAG_EQ => Equal4.IN3
+FLAG_EQ => Equal5.IN6
 FLAG_EQ => Equal6.IN3
-FLAG_EQ => Equal7.IN4
+FLAG_EQ => Equal7.IN5
 FLAG_EQ => Equal8.IN4
 FLAG_EQ => Equal9.IN4
+FLAG_EQ => Equal10.IN4
+FLAG_EQ => Equal11.IN5
+FLAG_EQ => Equal12.IN6
+FLAG_EQ => Equal13.IN5
+FLAG_EQ => Equal14.IN3
+FLAG_EQ => Equal15.IN3
+FLAG_EQ => Equal16.IN3
+FLAG_EQ => Equal17.IN6
+FLAG_EQ => Equal18.IN3
+FLAG_EQ => Equal19.IN5
+FLAG_EQ => Equal20.IN4
+FLAG_EQ => Equal21.IN6
+FLAG_EQ => Equal22.IN4
+FLAG_EQ => Equal23.IN5
+JLT => Equal0.IN4
+JLT => Equal1.IN3
+JLT => Equal2.IN4
+JLT => Equal3.IN3
+JLT => Equal4.IN4
+JLT => Equal5.IN3
+JLT => Equal6.IN4
+JLT => Equal7.IN3
+JLT => Equal8.IN5
+JLT => Equal9.IN5
+JLT => Equal10.IN6
+JLT => Equal11.IN6
+JLT => Equal12.IN3
+JLT => Equal13.IN3
+JLT => Equal14.IN4
+JLT => Equal15.IN4
+JLT => Equal16.IN4
+JLT => Equal17.IN3
+JLT => Equal18.IN4
+JLT => Equal19.IN3
+JLT => Equal20.IN5
+JLT => Equal21.IN4
+JLT => Equal22.IN5
+JLT => Equal23.IN4
+FLAG_LT => Equal0.IN5
+FLAG_LT => Equal1.IN4
+FLAG_LT => Equal2.IN6
+FLAG_LT => Equal3.IN6
+FLAG_LT => Equal4.IN5
+FLAG_LT => Equal5.IN4
+FLAG_LT => Equal6.IN6
+FLAG_LT => Equal7.IN6
+FLAG_LT => Equal8.IN6
+FLAG_LT => Equal9.IN6
+FLAG_LT => Equal10.IN5
+FLAG_LT => Equal11.IN4
+FLAG_LT => Equal12.IN4
+FLAG_LT => Equal13.IN6
+FLAG_LT => Equal14.IN5
+FLAG_LT => Equal15.IN6
+FLAG_LT => Equal16.IN5
+FLAG_LT => Equal17.IN4
+FLAG_LT => Equal18.IN6
+FLAG_LT => Equal19.IN6
+FLAG_LT => Equal20.IN6
+FLAG_LT => Equal21.IN5
+FLAG_LT => Equal22.IN6
+FLAG_LT => Equal23.IN6
 SelMuxPC[0] <= SelMuxPC.DB_MAX_OUTPUT_PORT_TYPE
 SelMuxPC[1] <= SelMuxPC.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|processador:processador|decoderInstr:decoderInstr
-opcode[0] => Equal0.IN1
+|relogio|processador:processador|decoderInstr:decoderInstr
+opcode[0] => Equal0.IN0
 opcode[0] => Equal1.IN3
-opcode[0] => Equal2.IN2
-opcode[0] => Equal3.IN3
-opcode[0] => Equal4.IN1
-opcode[0] => Equal5.IN3
-opcode[0] => Equal6.IN2
-opcode[0] => Equal7.IN3
+opcode[0] => Equal2.IN1
+opcode[0] => Equal3.IN1
+opcode[0] => Equal4.IN3
+opcode[0] => Equal5.IN2
+opcode[0] => Equal6.IN3
+opcode[0] => Equal7.IN1
 opcode[0] => Equal8.IN3
 opcode[0] => Equal9.IN2
 opcode[0] => Equal10.IN3
 opcode[0] => Equal11.IN3
+opcode[0] => Equal12.IN2
+opcode[0] => Equal13.IN3
+opcode[0] => Equal14.IN3
 opcode[1] => Equal0.IN3
-opcode[1] => Equal1.IN1
-opcode[1] => Equal2.IN1
-opcode[1] => Equal3.IN2
-opcode[1] => Equal4.IN3
+opcode[1] => Equal1.IN0
+opcode[1] => Equal2.IN0
+opcode[1] => Equal3.IN3
+opcode[1] => Equal4.IN1
 opcode[1] => Equal5.IN1
-opcode[1] => Equal6.IN1
-opcode[1] => Equal7.IN2
-opcode[1] => Equal8.IN2
-opcode[1] => Equal9.IN3
+opcode[1] => Equal6.IN2
+opcode[1] => Equal7.IN3
+opcode[1] => Equal8.IN1
+opcode[1] => Equal9.IN1
 opcode[1] => Equal10.IN2
 opcode[1] => Equal11.IN2
-opcode[2] => Equal0.IN0
-opcode[2] => Equal1.IN0
-opcode[2] => Equal2.IN0
-opcode[2] => Equal3.IN1
-opcode[2] => Equal4.IN2
-opcode[2] => Equal5.IN2
-opcode[2] => Equal6.IN3
-opcode[2] => Equal7.IN0
-opcode[2] => Equal8.IN1
-opcode[2] => Equal9.IN1
-opcode[2] => Equal10.IN1
+opcode[1] => Equal12.IN3
+opcode[1] => Equal13.IN2
+opcode[1] => Equal14.IN2
+opcode[2] => Equal0.IN2
+opcode[2] => Equal1.IN2
+opcode[2] => Equal2.IN3
+opcode[2] => Equal3.IN0
+opcode[2] => Equal4.IN0
+opcode[2] => Equal5.IN0
+opcode[2] => Equal6.IN1
+opcode[2] => Equal7.IN2
+opcode[2] => Equal8.IN2
+opcode[2] => Equal9.IN3
+opcode[2] => Equal10.IN0
 opcode[2] => Equal11.IN1
-opcode[3] => Equal0.IN2
-opcode[3] => Equal1.IN2
-opcode[3] => Equal2.IN3
-opcode[3] => Equal3.IN0
-opcode[3] => Equal4.IN0
-opcode[3] => Equal5.IN0
+opcode[2] => Equal12.IN1
+opcode[2] => Equal13.IN1
+opcode[2] => Equal14.IN1
+opcode[3] => Equal0.IN1
+opcode[3] => Equal1.IN1
+opcode[3] => Equal2.IN2
+opcode[3] => Equal3.IN2
+opcode[3] => Equal4.IN2
+opcode[3] => Equal5.IN3
 opcode[3] => Equal6.IN0
-opcode[3] => Equal7.IN1
+opcode[3] => Equal7.IN0
 opcode[3] => Equal8.IN0
 opcode[3] => Equal9.IN0
-opcode[3] => Equal10.IN0
+opcode[3] => Equal10.IN1
 opcode[3] => Equal11.IN0
+opcode[3] => Equal12.IN0
+opcode[3] => Equal13.IN0
+opcode[3] => Equal14.IN0
 saida[0] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[1] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[2] <= saida.DB_MAX_OUTPUT_PORT_TYPE
@@ -693,9 +854,168 @@ saida[8] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[9] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[10] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[11] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[12] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[13] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|decoder3x8:decoderBloco
+|relogio|buffer_3_state_8portas:SW_0_7
+entrada[0] => saida[0].DATAIN
+entrada[1] => saida[1].DATAIN
+entrada[2] => saida[2].DATAIN
+entrada[3] => saida[3].DATAIN
+entrada[4] => saida[4].DATAIN
+entrada[5] => saida[5].DATAIN
+entrada[6] => saida[6].DATAIN
+entrada[7] => saida[7].DATAIN
+habilita => saida[0].OE
+habilita => saida[1].OE
+habilita => saida[2].OE
+habilita => saida[3].OE
+habilita => saida[4].OE
+habilita => saida[5].OE
+habilita => saida[6].OE
+habilita => saida[7].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida[1].DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida[2].DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida[3].DB_MAX_OUTPUT_PORT_TYPE
+saida[4] <= saida[4].DB_MAX_OUTPUT_PORT_TYPE
+saida[5] <= saida[5].DB_MAX_OUTPUT_PORT_TYPE
+saida[6] <= saida[6].DB_MAX_OUTPUT_PORT_TYPE
+saida[7] <= saida[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:SW_8
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:SW_9
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:KEY_0
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:KEY_1
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:KEY_2
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:KEY_3
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|buffer_3_state_8portas:FPGA_RESET
+entrada[0] => saida[0].DATAIN
+habilita => saida[0].OE
+saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|flipflopGenerico:FF_DEBOUNCER_0
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT~reg0.ENA
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
+
+
+|relogio|flipflopGenerico:FF_DEBOUNCER_1
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT~reg0.ENA
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
+
+
+|relogio|flipflopGenerico:FF_DEBOUNCER_2
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT~reg0.ENA
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
+
+
+|relogio|flipflopGenerico:FF_DEBOUNCER_3
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT~reg0.ENA
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
+
+
+|relogio|divisorGenerico:incremento_normal
+clk => tick.CLK
+clk => contador[0].CLK
+clk => contador[1].CLK
+clk => contador[2].CLK
+clk => contador[3].CLK
+clk => contador[4].CLK
+clk => contador[5].CLK
+clk => contador[6].CLK
+clk => contador[7].CLK
+clk => contador[8].CLK
+clk => contador[9].CLK
+clk => contador[10].CLK
+clk => contador[11].CLK
+clk => contador[12].CLK
+clk => contador[13].CLK
+clk => contador[14].CLK
+clk => contador[15].CLK
+clk => contador[16].CLK
+clk => contador[17].CLK
+clk => contador[18].CLK
+clk => contador[19].CLK
+clk => contador[20].CLK
+clk => contador[21].CLK
+clk => contador[22].CLK
+clk => contador[23].CLK
+clk => contador[24].CLK
+saida_clk <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|divisorGenerico:incremento_acelerado
+clk => tick.CLK
+clk => contador[0].CLK
+clk => contador[1].CLK
+clk => contador[2].CLK
+clk => contador[3].CLK
+clk => contador[4].CLK
+clk => contador[5].CLK
+clk => contador[6].CLK
+clk => contador[7].CLK
+clk => contador[8].CLK
+clk => contador[9].CLK
+clk => contador[10].CLK
+clk => contador[11].CLK
+clk => contador[12].CLK
+clk => contador[13].CLK
+saida_clk <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|muxGenerico2x1:MUX1
+entradaA_MUX[0] => saida_MUX.DATAA
+entradaB_MUX[0] => saida_MUX.DATAB
+seletor_MUX => saida_MUX.OUTPUTSELECT
+saida_MUX[0] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|relogio|decoder3x8:decoderBloco
 entrada[0] => Equal0.IN2
 entrada[0] => Equal1.IN0
 entrada[0] => Equal2.IN2
@@ -730,7 +1050,7 @@ saida[6] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
 saida[7] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|decoder3x8:decoderPosicao
+|relogio|decoder3x8:decoderPosicao
 entrada[0] => Equal0.IN2
 entrada[0] => Equal1.IN0
 entrada[0] => Equal2.IN2
@@ -765,7 +1085,7 @@ saida[6] <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
 saida[7] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|modelo_led:modelo_led
+|relogio|modelo_led:modelo_led
 CLK => flipflopgenerico:FlipFlop2.CLK
 CLK => flipflopgenerico:FlipFlop1.CLK
 CLK => registradorgenerico:REG_LEDS.CLK
@@ -778,9 +1098,9 @@ habilita => comb.IN1
 escrita => comb.IN1
 escrita => comb.IN1
 escrita => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
 DATA_OUT[0] => flipflopgenerico:FlipFlop2.DIN
 DATA_OUT[0] => flipflopgenerico:FlipFlop1.DIN
 DATA_OUT[0] => registradorgenerico:REG_LEDS.DIN[0]
@@ -803,7 +1123,7 @@ LED_endereco1 <= flipflopgenerico:FlipFlop1.DOUT
 LED_endereco2 <= flipflopgenerico:FlipFlop2.DOUT
 
 
-|contador|modelo_led:modelo_led|flipflopGenerico:FlipFlop2
+|relogio|modelo_led:modelo_led|flipflopGenerico:FlipFlop2
 DIN => DOUT~reg0.DATAIN
 DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ENABLE => DOUT~reg0.ENA
@@ -811,7 +1131,7 @@ CLK => DOUT~reg0.CLK
 RST => DOUT~reg0.ACLR
 
 
-|contador|modelo_led:modelo_led|flipflopGenerico:FlipFlop1
+|relogio|modelo_led:modelo_led|flipflopGenerico:FlipFlop1
 DIN => DOUT~reg0.DATAIN
 DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ENABLE => DOUT~reg0.ENA
@@ -819,7 +1139,7 @@ CLK => DOUT~reg0.CLK
 RST => DOUT~reg0.ACLR
 
 
-|contador|modelo_led:modelo_led|registradorGenerico:REG_LEDS
+|relogio|modelo_led:modelo_led|registradorGenerico:REG_LEDS
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -862,7 +1182,7 @@ RST => DOUT[6]~reg0.ACLR
 RST => DOUT[7]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg
+|relogio|modelo_7seg:modelo_7seg
 CLK => registradorgenerico:REG0.CLK
 CLK => registradorgenerico:REG1.CLK
 CLK => registradorgenerico:REG2.CLK
@@ -893,12 +1213,12 @@ DATA_OUT[3] => registradorgenerico:REG2.DIN[3]
 DATA_OUT[3] => registradorgenerico:REG3.DIN[3]
 DATA_OUT[3] => registradorgenerico:REG4.DIN[3]
 DATA_OUT[3] => registradorgenerico:REG5.DIN[3]
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
-DATA_ADDRESS_A5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
+DATA_ADDRESS_5 => comb.IN1
 DecoderPosicao[0] => comb.IN0
 DecoderPosicao[1] => comb.IN0
 DecoderPosicao[2] => comb.IN0
@@ -907,12 +1227,12 @@ DecoderPosicao[4] => comb.IN0
 DecoderPosicao[5] => comb.IN0
 DecoderPosicao[6] => ~NO_FANOUT~
 DecoderPosicao[7] => ~NO_FANOUT~
-saida_bloco4 => comb.IN1
-saida_bloco4 => comb.IN1
-saida_bloco4 => comb.IN1
-saida_bloco4 => comb.IN1
-saida_bloco4 => comb.IN1
-saida_bloco4 => comb.IN1
+habilita => comb.IN1
+habilita => comb.IN1
+habilita => comb.IN1
+habilita => comb.IN1
+habilita => comb.IN1
+habilita => comb.IN1
 escrita => comb.IN1
 escrita => comb.IN1
 escrita => comb.IN1
@@ -963,7 +1283,7 @@ HEX5[5] <= conversorhex7seg:H5.saida7seg[5]
 HEX5[6] <= conversorhex7seg:H5.saida7seg[6]
 
 
-|contador|modelo_7Seg:modelo_7seg|registradorGenerico:REG0
+|relogio|modelo_7seg:modelo_7seg|registradorGenerico:REG0
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -986,7 +1306,7 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg|conversorHex7Seg:H0
+|relogio|modelo_7seg:modelo_7seg|conversorHex7Seg:H0
 dadoHex[0] => Equal0.IN3
 dadoHex[0] => Equal1.IN0
 dadoHex[0] => Equal2.IN3
@@ -1071,7 +1391,7 @@ saida7seg[5] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 saida7seg[6] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|modelo_7Seg:modelo_7seg|registradorGenerico:REG1
+|relogio|modelo_7seg:modelo_7seg|registradorGenerico:REG1
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -1094,7 +1414,7 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg|conversorHex7Seg:H1
+|relogio|modelo_7seg:modelo_7seg|conversorHex7Seg:H1
 dadoHex[0] => Equal0.IN3
 dadoHex[0] => Equal1.IN0
 dadoHex[0] => Equal2.IN3
@@ -1179,7 +1499,7 @@ saida7seg[5] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 saida7seg[6] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|modelo_7Seg:modelo_7seg|registradorGenerico:REG2
+|relogio|modelo_7seg:modelo_7seg|registradorGenerico:REG2
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -1202,7 +1522,7 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg|conversorHex7Seg:H2
+|relogio|modelo_7seg:modelo_7seg|conversorHex7Seg:H2
 dadoHex[0] => Equal0.IN3
 dadoHex[0] => Equal1.IN0
 dadoHex[0] => Equal2.IN3
@@ -1287,7 +1607,7 @@ saida7seg[5] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 saida7seg[6] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|modelo_7Seg:modelo_7seg|registradorGenerico:REG3
+|relogio|modelo_7seg:modelo_7seg|registradorGenerico:REG3
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -1310,7 +1630,7 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg|conversorHex7Seg:H3
+|relogio|modelo_7seg:modelo_7seg|conversorHex7Seg:H3
 dadoHex[0] => Equal0.IN3
 dadoHex[0] => Equal1.IN0
 dadoHex[0] => Equal2.IN3
@@ -1395,7 +1715,7 @@ saida7seg[5] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 saida7seg[6] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|modelo_7Seg:modelo_7seg|registradorGenerico:REG4
+|relogio|modelo_7seg:modelo_7seg|registradorGenerico:REG4
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -1418,7 +1738,7 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg|conversorHex7Seg:H4
+|relogio|modelo_7seg:modelo_7seg|conversorHex7Seg:H4
 dadoHex[0] => Equal0.IN3
 dadoHex[0] => Equal1.IN0
 dadoHex[0] => Equal2.IN3
@@ -1503,7 +1823,7 @@ saida7seg[5] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 saida7seg[6] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|modelo_7Seg:modelo_7seg|registradorGenerico:REG5
+|relogio|modelo_7seg:modelo_7seg|registradorGenerico:REG5
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -1526,7 +1846,7 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
-|contador|modelo_7Seg:modelo_7seg|conversorHex7Seg:H5
+|relogio|modelo_7seg:modelo_7seg|conversorHex7Seg:H5
 dadoHex[0] => Equal0.IN3
 dadoHex[0] => Equal1.IN0
 dadoHex[0] => Equal2.IN3
@@ -1611,70 +1931,7 @@ saida7seg[5] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 saida7seg[6] <= saida7seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|buffer_3_state_8portas:KEY_0
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|buffer_3_state_8portas:KEY_1
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|buffer_3_state_8portas:KEY_2
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|buffer_3_state_8portas:KEY_3
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|buffer_3_state_8portas:SW_0_7
-entrada[0] => saida[0].DATAIN
-entrada[1] => saida[1].DATAIN
-entrada[2] => saida[2].DATAIN
-entrada[3] => saida[3].DATAIN
-entrada[4] => saida[4].DATAIN
-entrada[5] => saida[5].DATAIN
-entrada[6] => saida[6].DATAIN
-entrada[7] => saida[7].DATAIN
-habilita => saida[0].OE
-habilita => saida[1].OE
-habilita => saida[2].OE
-habilita => saida[3].OE
-habilita => saida[4].OE
-habilita => saida[5].OE
-habilita => saida[6].OE
-habilita => saida[7].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-saida[1] <= saida[1].DB_MAX_OUTPUT_PORT_TYPE
-saida[2] <= saida[2].DB_MAX_OUTPUT_PORT_TYPE
-saida[3] <= saida[3].DB_MAX_OUTPUT_PORT_TYPE
-saida[4] <= saida[4].DB_MAX_OUTPUT_PORT_TYPE
-saida[5] <= saida[5].DB_MAX_OUTPUT_PORT_TYPE
-saida[6] <= saida[6].DB_MAX_OUTPUT_PORT_TYPE
-saida[7] <= saida[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|buffer_3_state_8portas:SW_8
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|buffer_3_state_8portas:SW_9
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|memoriaRAM:RAM1
+|relogio|memoriaRAM:RAM
 addr[0] => ram~5.DATAIN
 addr[0] => ram.WADDR
 addr[0] => ram.RADDR
@@ -1739,7 +1996,7 @@ dado_out[6] <= dado_out[6].DB_MAX_OUTPUT_PORT_TYPE
 dado_out[7] <= dado_out[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|memoriaROM:ROM1
+|relogio|memoriaROM:ROM
 Endereco[0] => memROM.RADDR
 Endereco[1] => memROM.RADDR1
 Endereco[2] => memROM.RADDR2
@@ -1764,35 +2021,5 @@ Dado[11] <= memROM.DATAOUT11
 Dado[12] <= memROM.DATAOUT12
 Dado[13] <= memROM.DATAOUT13
 Dado[14] <= memROM.DATAOUT14
-
-
-|contador|buffer_3_state_8portas:FPGA_RESET
-entrada[0] => saida[0].DATAIN
-habilita => saida[0].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|contador|flipflopGenerico:FF_DEBOUNCER_0
-DIN => DOUT~reg0.DATAIN
-DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
-ENABLE => DOUT~reg0.ENA
-CLK => DOUT~reg0.CLK
-RST => DOUT~reg0.ACLR
-
-
-|contador|flipflopGenerico:FF_DEBOUNCER_1
-DIN => DOUT~reg0.DATAIN
-DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
-ENABLE => DOUT~reg0.ENA
-CLK => DOUT~reg0.CLK
-RST => DOUT~reg0.ACLR
-
-
-|contador|flipflopGenerico:FF_DEBOUNCER_2
-DIN => DOUT~reg0.DATAIN
-DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
-ENABLE => DOUT~reg0.ENA
-CLK => DOUT~reg0.CLK
-RST => DOUT~reg0.ACLR
 
 

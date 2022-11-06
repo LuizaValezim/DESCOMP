@@ -152,6 +152,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "MEM_OUTT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_OUTT[7]",
+					"strict" : false
+				},
+				{
 					"name" : "enderecoR[0]",
 					"strict" : false
 				},
@@ -332,11 +364,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "FPGA_RESET_N",
 					"strict" : false
 				},
 				{
-					"name" : "SW[9]",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
@@ -344,7 +376,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "FPGA_RESET_N",
+					"name" : "SW[9]",
 					"strict" : false
 				},
 				{
@@ -376,15 +408,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
 					"name" : "KEY[0]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[2]",
+					"name" : "KEY[3]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
+					"name" : "KEY[2]",
 					"strict" : false
 				}
 			]

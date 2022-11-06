@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Sun Oct 23 19:25:40 2022
+Analysis & Synthesis Status : Successful - Sun Nov 06 18:13:07 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : projeto_relogio
-Top-level Entity Name : contador
+Top-level Entity Name : relogio
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 603
+Total registers : 646
 Total pins : 105
 Total virtual pins : 0
 Total block memory bits : 0

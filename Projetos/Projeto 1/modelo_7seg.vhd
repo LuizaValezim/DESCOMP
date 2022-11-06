@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity modelo_7Seg is
+entity modelo_7seg is
 	port(
 		CLK: in std_logic;
 		DATA_OUT: in std_logic_vector(3 downto 0);
-		DATA_ADDRESS_A5 : in std_logic;
+		DATA_ADDRESS_5 : in std_logic;
 		DecoderPosicao: in std_logic_vector (7 downto 0);
-		saida_bloco4 : in std_logic;
+		habilita : in std_logic;
 		escrita : in std_logic;
 		HEX0			: out std_logic_vector	(6 downto 0);
 	   HEX1			: out std_logic_vector	(6 downto 0);
@@ -20,7 +20,7 @@ entity modelo_7Seg is
 	
 end entity;
 
-architecture arch_name of modelo_7Seg is
+architecture arch_name of modelo_7seg is
 
 	signal hex_0: std_logic_vector(3 downto 0);
 	signal hex_1: std_logic_vector(3 downto 0);
@@ -36,7 +36,7 @@ begin
 			 port map (
 						DIN => DATA_OUT,
 						DOUT => hex_0,
-						ENABLE => (saida_bloco4 AND DecoderPosicao(0) AND escrita AND DATA_ADDRESS_A5),
+						ENABLE => (habilita AND DecoderPosicao(0) AND escrita AND DATA_ADDRESS_5),
 						CLK => CLK,
 						RST => '0');
 
@@ -52,7 +52,7 @@ begin
 			 port map (
 						DIN => DATA_OUT,
 						DOUT => hex_1,
-						ENABLE => (saida_bloco4 AND DecoderPosicao(1) AND escrita AND DATA_ADDRESS_A5),
+						ENABLE => (habilita AND DecoderPosicao(1) AND escrita AND DATA_ADDRESS_5),
 						CLK => CLK,
 						RST => '0');
 					  
@@ -68,7 +68,7 @@ begin
 			 port map (
 						DIN => DATA_OUT,
 						DOUT => hex_2,
-						ENABLE => (saida_bloco4 AND DecoderPosicao(2) AND escrita AND DATA_ADDRESS_A5),
+						ENABLE => (habilita AND DecoderPosicao(2) AND escrita AND DATA_ADDRESS_5),
 						CLK => CLK,
 						RST => '0');
 					  
@@ -84,7 +84,7 @@ begin
 			 port map (
 						DIN => DATA_OUT,
 						DOUT => hex_3,
-						ENABLE => (saida_bloco4 AND DecoderPosicao(3) AND escrita AND DATA_ADDRESS_A5),
+						ENABLE => (habilita AND DecoderPosicao(3) AND escrita AND DATA_ADDRESS_5),
 						CLK => CLK,
 						RST => '0');
 					  
@@ -100,7 +100,7 @@ begin
 			 port map (
 						DIN => DATA_OUT,
 						DOUT => hex_4,
-						ENABLE => (saida_bloco4 AND DecoderPosicao(4) AND escrita AND DATA_ADDRESS_A5),
+						ENABLE => (habilita AND DecoderPosicao(4) AND escrita AND DATA_ADDRESS_5),
 						CLK => CLK,
 						RST => '0');
 
@@ -116,7 +116,7 @@ begin
 			 port map (
 						DIN => DATA_OUT,
 						DOUT => hex_5,
-						ENABLE => (saida_bloco4 AND DecoderPosicao(5) AND escrita AND DATA_ADDRESS_A5),
+						ENABLE => (habilita AND DecoderPosicao(5) AND escrita AND DATA_ADDRESS_5),
 						CLK => CLK,
 						RST => '0');
 					  

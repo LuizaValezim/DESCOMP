@@ -6,10 +6,9 @@ entity bancoRegistradores is
     generic
     (
         larguraDados        : natural := 8;
-        larguraEndBancoRegs : natural := 2   --Resulta em 2^2=4 posicoes
+        larguraEndBancoRegs : natural := 2   
     );
-
--- Leitura e escrita de um registrador.
+	 
     port
     (
         clk        : in std_logic;
@@ -25,7 +24,6 @@ architecture comportamento of bancoRegistradores is
     subtype palavra_t is std_logic_vector((larguraDados-1) downto 0);
     type memoria_t is array(2**larguraEndBancoRegs-1 downto 0) of palavra_t;
 
-    -- Declaracao dos registradores:
     shared variable registrador : memoria_t;
 
 begin
