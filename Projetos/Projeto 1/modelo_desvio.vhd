@@ -26,14 +26,14 @@ begin
 	inputs(1) <= JLT;
 	inputs(0) <= FLAG_LT;
 	
-	SelMuxPC <= "00" when (inputs = "0000000" or inputs = "0000100" or inputs = "0000001" or inputs = "0000101") else -- QUANDO TODOS JMP's estão ZERADOS
-					"01" when (inputs = "1000000" or inputs = "1000100" or inputs = "1000001" or inputs = "1000101") else -- QUANDO O JMP ESTÁ ATIVADO
-					"00" when (inputs = "0001000" or inputs = "0001001") else -- QUANDO JEQ ATIVADO MAS FLAG_EQ É 0
-					"01" when (inputs = "0001100" or inputs = "0001101") else -- QUANDO JEQ ATIVADO E FLAG_EQ É 1
-					"00" when (inputs = "0000010" or inputs = "0000110") else -- QUANDO JLT ATIVADO E FLAG_LT É 0
-					"01" when (inputs = "0000011" or inputs = "0000111") else -- QUANDO JLT ATIVADO E FLAG_LT É 1
-					"01" when (inputs = "0010000" or inputs = "0010100" or inputs = "0010001" or inputs = "0010101") else -- QUANDO JSR ATIVADO INDEPENDENTE DAS FLAGS
-					"10" when (inputs = "0100000" or inputs = "0100100" or inputs = "0100001" or inputs = "0100101") else -- QUANDO RET ATIVADO INDEPENDENTE DAS FLAGS
+	SelMuxPC <= "00" when (inputs = "0000000" or inputs = "0000100" or inputs = "0000001" or inputs = "0000101") else
+					"01" when (inputs = "1000000" or inputs = "1000100" or inputs = "1000001" or inputs = "1000101") else
+					"00" when (inputs = "0001000" or inputs = "0001001") else 
+					"01" when (inputs = "0001100" or inputs = "0001101") else
+					"00" when (inputs = "0000010" or inputs = "0000110") else 
+					"01" when (inputs = "0000011" or inputs = "0000111") else 
+					"01" when (inputs = "0010000" or inputs = "0010100" or inputs = "0010001" or inputs = "0010101") else 
+					"10" when (inputs = "0100000" or inputs = "0100100" or inputs = "0100001" or inputs = "0100101") else 
 					"00";
 end architecture;
 					

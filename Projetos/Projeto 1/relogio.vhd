@@ -26,8 +26,6 @@ entity relogio is
     HEX3			: out std_logic_vector	(6 downto 0);
     HEX4			: out std_logic_vector	(6 downto 0);
     HEX5			: out std_logic_vector	(6 downto 0)
-
-
 );
   
 end entity;
@@ -35,14 +33,14 @@ end entity;
 architecture arquitetura of relogio is
 
   signal CLK : std_logic;
-  signal KEY_0_tratadoA : std_logic; -- apenas para tratar no debouncer.
-  signal KEY_0_tratadoB : std_logic; -- é o clock do relógio real
-  signal KEY_0_tratadoC : std_logic; -- é o clock do relógio acelerado
-  signal KEY_0_tratadoF : std_logic; -- é o que sai do MUX: minha escolha. Se botão não apertado: real. Se apertado: acelera 
+  signal KEY_00 : std_logic;
+  signal KEY_INC_NORMAL : std_logic; 
+  signal KEY_INC_ACELERADO : std_logic; 
+  signal KEY_DEBOUNCER : std_logic; 
   
-  signal KEY_1_tratado : std_logic;
-  signal KEY_2_tratado : std_logic;
-  signal KEY_3_tratado : std_logic;
+  signal KEY_01 : std_logic;
+  signal KEY_02 : std_logic;
+  signal KEY_03 : std_logic;
  
   signal MEM_Read : std_logic;
   signal MEM_Write: std_logic;
@@ -79,35 +77,35 @@ begin
 
 gravar:  if simulacao generate
 				CLK 				<= CLOCK_50;
-				KEY_0_tratadoA 	<= KEY(0);
-				KEY_1_tratado 	<= KEY(1);
-				KEY_2_tratado 	<= KEY(2);
-				KEY_3_tratado 	<= KEY(3);
+				KEY_00 		   <= KEY(0);
+				KEY_01 	      <= KEY(1);
+				KEY_02 	      <= KEY(2);
+				KEY_03 	      <= KEY(3);
 			else generate
 				CLK 				<= CLOCK_50;
 				
 				detectorSub0: work.edgeDetector(bordaSubida)
 					port map(	clk 		=> CLOCK_50,
 									entrada 	=> (not KEY(0)),
-									saida 	=> KEY_0_tratadoA
+									saida 	=> KEY_00
 								);
 			
 				detectorSub1: work.edgeDetector(bordaSubida)
 					port map(	clk 		=> CLOCK_50,
 									entrada 	=> (not KEY(1)),
-									saida 	=> KEY_1_tratado
+									saida 	=> KEY_01
 								);
 								
 				detectorSub2: work.edgeDetector(bordaSubida)
 					port map(	clk 		=> CLOCK_50,
 									entrada 	=> (not KEY(2)),
-									saida 	=> KEY_2_tratado
+									saida 	=> KEY_02
 								);
 								
 				detectorSub3: work.edgeDetector(bordaSubida)
 					port map(	clk 		=> CLOCK_50,
 									entrada 	=> (not KEY(3)),
-									saida 	=> KEY_3_tratado
+									saida 	=> KEY_03
 								);
 end generate;
 
@@ -216,7 +214,7 @@ end generate;
 			DIN 		=> '1',
 			DOUT 		=> DEBOUNCER_OUT_0,
 			ENABLE 	=> '1',
-			CLK		=> KEY_0_tratadoF,
+			CLK		=> KEY_DEBOUNCER,
 			RST		=> RESET_511
 	);
 	
@@ -226,7 +224,7 @@ end generate;
 			DIN 		=> '1',
 			DOUT 		=> DEBOUNCER_OUT_1,
 			ENABLE 	=> '1',
-			CLK		=> KEY_1_tratado,
+			CLK		=> KEY_01,
 			RST		=> RESET_510
 	);	
 	
@@ -236,7 +234,7 @@ end generate;
 			DIN 		=> '1',
 			DOUT 		=> DEBOUNCER_OUT_2,
 			ENABLE 	=> '1',
-			CLK		=> KEY_2_tratado,
+			CLK		=> KEY_02,
 			RST		=> RESET_509
 	);	
 	
@@ -245,7 +243,7 @@ end generate;
 			DIN 		=> '1',
 			DOUT 		=> DEBOUNCER_OUT_3,
 			ENABLE 	=> '1',
-			CLK		=> KEY_3_tratado,
+			CLK		=> KEY_03,
 			RST		=> RESET_508
 	);	
 					 
@@ -255,7 +253,7 @@ end generate;
 	-- 1:1					
 	incremento_normal : entity work.divisorGenerico generic map (divisor => 25000000)   -- divide por 50000000.
 				port map(	clk 				=> CLK,
-								saida_clk 		=> KEY_0_tratadoB
+								saida_clk 		=> KEY_INC_NORMAL
 							);
 							
 							
@@ -263,7 +261,7 @@ end generate;
 	-- 1:2000		
 	incremento_acelerado : entity work.divisorGenerico generic map (divisor => 12500)   -- divide por 25000.
 				port map(	clk 				=> CLK,
-								saida_clk 		=> KEY_0_tratadoC
+								saida_clk 		=> KEY_INC_ACELERADO
 							);
 							
 							
@@ -271,10 +269,10 @@ end generate;
 	----------------------------------- MUX -----------------------------------
 	
 	MUX1 :	entity work.muxGenerico2x1  generic map (larguraDados => 1)
-				port map( 	entradaA_MUX(0) 	=> KEY_0_tratadoB,
-								entradaB_MUX(0) 	=> KEY_0_tratadoC,
+				port map( 	entradaA_MUX(0) 	=> KEY_INC_NORMAL,
+								entradaB_MUX(0) 	=> KEY_INC_ACELERADO,
 								seletor_MUX 	=> not KEY(0),
-								saida_MUX(0) 		=> KEY_0_tratadoF
+								saida_MUX(0) 		=> KEY_DEBOUNCER
 							);
 							
 				

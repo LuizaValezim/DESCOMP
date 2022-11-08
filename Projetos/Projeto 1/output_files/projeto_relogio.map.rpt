@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto_relogio
-Sun Nov 06 18:13:07 2022
+Tue Nov 08 08:35:16 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -100,7 +100,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 06 18:13:07 2022       ;
+; Analysis & Synthesis Status     ; Successful - Tue Nov 08 08:35:16 2022       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; projeto_relogio                             ;
 ; Top-level Entity Name           ; relogio                                     ;
@@ -959,7 +959,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:22     ;
 +----------------+--------------+
 
 
@@ -969,7 +969,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun Nov 06 18:12:48 2022
+    Info: Processing started: Tue Nov 08 08:34:31 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto_relogio -c projeto_relogio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1035,13 +1035,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file divisor
     Info (12022): Found design unit 1: divisorGenerico-divInteiro File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/divisorGenerico.vhd Line: 12
     Info (12023): Found entity 1: divisorGenerico File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/divisorGenerico.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file relogio.vhd
-    Info (12022): Found design unit 1: relogio-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 35
+    Info (12022): Found design unit 1: relogio-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 33
     Info (12023): Found entity 1: relogio File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 4
 Info (12127): Elaborating entity "relogio" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at relogio.vhd(38): object "KEY_0_tratadoA" assigned a value but never read File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 38
-Warning (10036): Verilog HDL or VHDL warning at relogio.vhd(55): object "Palavra_processador" assigned a value but never read File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 55
-Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:\gravar:detectorSub0" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 89
-Info (12128): Elaborating entity "processador" for hierarchy "processador:processador" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 115
+Warning (10036): Verilog HDL or VHDL warning at relogio.vhd(36): object "KEY_00" assigned a value but never read File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 36
+Warning (10036): Verilog HDL or VHDL warning at relogio.vhd(53): object "Palavra_processador" assigned a value but never read File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 53
+Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:\gravar:detectorSub0" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 87
+Info (12128): Elaborating entity "processador" for hierarchy "processador:processador" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 113
 Info (12128): Elaborating entity "registradorGenerico" for hierarchy "processador:processador|registradorGenerico:PC" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/processador.vhd Line: 76
 Info (12128): Elaborating entity "somaConstante" for hierarchy "processador:processador|somaConstante:incrementaPC" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/processador.vhd Line: 84
 Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "processador:processador|muxGenerico2x1:MUX1" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/processador.vhd Line: 97
@@ -1051,19 +1051,19 @@ Info (12128): Elaborating entity "bancoRegistradores" for hierarchy "processador
 Info (12128): Elaborating entity "flipflopGenerico" for hierarchy "processador:processador|flipflopGenerico:flagEQ" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/processador.vhd Line: 132
 Info (12128): Elaborating entity "modelo_desvio" for hierarchy "processador:processador|modelo_desvio:modelo_desvio" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/processador.vhd Line: 153
 Info (12128): Elaborating entity "decoderInstr" for hierarchy "processador:processador|decoderInstr:decoderInstr" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/processador.vhd Line: 166
-Info (12128): Elaborating entity "buffer_3_state_8portas" for hierarchy "buffer_3_state_8portas:SW_0_7" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 132
-Info (12128): Elaborating entity "buffer_3_state_8portas" for hierarchy "buffer_3_state_8portas:SW_8" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 139
-Info (12128): Elaborating entity "divisorGenerico" for hierarchy "divisorGenerico:incremento_normal" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 256
-Info (12128): Elaborating entity "divisorGenerico" for hierarchy "divisorGenerico:incremento_acelerado" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 264
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX1" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 273
-Info (12128): Elaborating entity "decoder3x8" for hierarchy "decoder3x8:decoderBloco" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 283
-Info (12128): Elaborating entity "modelo_led" for hierarchy "modelo_led:modelo_led" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 296
+Info (12128): Elaborating entity "buffer_3_state_8portas" for hierarchy "buffer_3_state_8portas:SW_0_7" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 130
+Info (12128): Elaborating entity "buffer_3_state_8portas" for hierarchy "buffer_3_state_8portas:SW_8" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 137
+Info (12128): Elaborating entity "divisorGenerico" for hierarchy "divisorGenerico:incremento_normal" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 254
+Info (12128): Elaborating entity "divisorGenerico" for hierarchy "divisorGenerico:incremento_acelerado" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 262
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX1" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 271
+Info (12128): Elaborating entity "decoder3x8" for hierarchy "decoder3x8:decoderBloco" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 281
+Info (12128): Elaborating entity "modelo_led" for hierarchy "modelo_led:modelo_led" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 294
 Info (12128): Elaborating entity "registradorGenerico" for hierarchy "modelo_led:modelo_led|registradorGenerico:REG_LEDS" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/modelo_led.vhd Line: 41
-Info (12128): Elaborating entity "modelo_7seg" for hierarchy "modelo_7seg:modelo_7seg" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 309
+Info (12128): Elaborating entity "modelo_7seg" for hierarchy "modelo_7seg:modelo_7seg" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 307
 Info (12128): Elaborating entity "registradorGenerico" for hierarchy "modelo_7seg:modelo_7seg|registradorGenerico:REG0" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/modelo_7seg.vhd Line: 35
 Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "modelo_7seg:modelo_7seg|conversorHex7Seg:H0" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/modelo_7seg.vhd Line: 43
-Info (12128): Elaborating entity "memoriaRAM" for hierarchy "memoriaRAM:RAM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 328
-Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:ROM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 338
+Info (12128): Elaborating entity "memoriaRAM" for hierarchy "memoriaRAM:RAM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 326
+Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:ROM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/relogio.vhd Line: 336
 Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer muxGenerico2x1:MUX1|saida_MUX[0] File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 1/muxGenerico2x1.vhd Line: 10
 Info (276014): Found 2 instances of uninferred RAM logic
@@ -1086,9 +1086,9 @@ Info (21057): Implemented 1375 device resources after synthesis - the final reso
     Info (21059): Implemented 89 output pins
     Info (21061): Implemented 1270 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4867 megabytes
-    Info: Processing ended: Sun Nov 06 18:13:07 2022
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 4874 megabytes
+    Info: Processing ended: Tue Nov 08 08:35:16 2022
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:00:39
 
 

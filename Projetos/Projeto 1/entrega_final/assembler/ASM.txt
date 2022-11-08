@@ -1,0 +1,292 @@
+LDI $0, R0      
+LDI $1, R1      
+LDI $6, R2      
+LDI $10, R3     
+STA @256, R0    
+STA @257, R0    
+STA @258, R0    
+STA @288, R0    
+STA @289, R0    
+STA @290, R0    
+STA @291, R0    
+STA @292, R0    
+STA @293, R0    
+STA @0, R0      
+STA @1, R0      
+STA @2, R0      
+STA @3, R0      
+STA @4, R0      
+STA @5, R0      
+STA @6, R0      
+STA @7, R0      
+STA @8, R1      
+STA @9, R3      
+STA @10, R2     
+STA @11, R2     
+STA @12, R2     
+STA @13, R2     
+STA @14, R2     
+STA @15, R2     
+STA @16, R2     
+LDI $2, R0      
+STA @17, R0     
+LDI $4, R0      
+STA @18, R0     
+LDI $24, R0     
+STA @19, R0     
+
+LOOP_PRINCIPAL:
+NOP             
+LDA @352, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+JEQ @LEITURA_KEY1 
+JSR @INCREMENTO                     
+NOP                        
+
+CHAMA_ATUALIZA_DISPLAY:
+JSR @ATUALIZA_SEVEN_SEG  
+JMP @LOOP_PRINCIPAL 
+
+INC:
+STA @511, R0     
+LDA @6, R1       
+CEQ @8, R1       
+JEQ @120 
+
+INC_UNIDADE:
+LDA @0, R0      
+SOMA @8, R0      
+CEQ @9, R0       
+JEQ @INC_DEZENA  
+STA @0, R0       
+RET       
+
+INC_DEZENA:
+LDA @7, R0      
+STA @0, R0      
+LDA @1, R0      
+SOMA @8, R0     
+CEQ @9, R0     
+JEQ @INC_CENTENA 
+STA @1, R0      
+RET            
+
+INC_CENTENA:
+LDA @7, R0      
+STA @1, R0      
+LDA @2, R0     
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @INC_UNIMILHAR 
+STA @2, R0      
+RET             
+
+INC_UNIMILHAR:
+LDA @7, R0      
+STA @2, R0      
+LDA @3, R0      
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @INC_DEZMILHAR  
+STA @3, R0      
+RET             
+
+INC_DEZMILHAR:
+LDA @7, R0      
+STA @3, R0     
+LDA @4, R0      
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @INC_CENTMILHAR 
+STA @4, R0      
+RET            
+INC_CENTMILHAR:
+LDA @7, R0      
+STA @4, R0      
+LDA @5, R0      
+SOMA @8, R0     
+CEQ @9, R0      
+JEQ @OVERFLOW   
+STA @5, R0      
+RET             
+
+CONFERE_24:
+LDA @5, R1     
+CEQ @17, R1     
+JEQ @REINICIAR_CONTAGEM_24 
+CEQ @9, R0      
+JEQ @INC_CENTMILHAR 
+STA @4, R0      
+JMP @FIM_INCREMENTO
+
+REINICIAR_CONTAGEM_24:
+LDA @7, R0      
+STA @0, R0      
+STA @1, R0      
+STA @2, R0      
+STA @3, R0      
+STA @4, R0      
+STA @5, R0      
+
+FIM_INCREMENTO:
+RET
+
+ATUALIZA_SEVEN_SEG:
+LDA @0, R0      
+LDA @1, R1      
+LDA @2, R2      
+STA @288, R0    
+STA @289, R1    
+STA @290, R2    
+LDA @3, R0      
+LDA @4, R1      
+LDA @5, R2      
+STA @291, R0    
+STA @292, R1    
+STA @293, R2    
+LDA @6, R0      
+CEQ @7, R0      
+JEQ @FIM_ATUALIZA_TELA
+LDA @8, R2     
+STA @257, R2   
+
+FIM_ATUALIZA_TELA:
+RET
+
+REINICIAR_CONTAGEM:
+LDA @7, R0      
+STA @0, R0      
+STA @1, R0      
+STA @2, R0      
+STA @3, R0      
+STA @4, R0      
+STA @5, R0      
+STA @6, R0      
+STA @257, R0    
+STA @258, R0    
+RET
+
+LIM_UNIDADE:
+LDA @8, R1      
+STA @256, R1    
+LDA @353, R0   
+ANDI @1, R0     
+CEQ @7, R0     
+LDA @320, R2   
+JEQ @LIM_UNIDADE 
+STA @10, R2   
+STA @510, R0   
+
+LIM_DEZENA:
+LDI $2, R1      
+STA @256, R1    
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_DEZENA 
+STA @11, R2     
+STA @510, R0    
+
+LIM_CENTENA:
+LDI $4, R1      
+STA @256, R1    
+LDA @353, R0   
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_CENTENA  
+STA @12, R2   
+STA @510, R0    
+
+LIM_MILHAR:
+LDI $8, R1      
+STA @256, R1   
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2   
+JEQ @LIM_UNIMILHAR  
+STA @13, R2     
+STA @510, R0    
+
+LIM_DEZMILHAR:
+LDI $16, R1     
+STA @256, R1   
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_DEZMILHAR 
+STA @14, R2     
+STA @510, R0   
+
+LIM_CENTMILHAR:
+LDI $32, R1    
+STA @256, R1    
+LDA @353, R0    
+ANDI @1, R0     
+CEQ @7, R0      
+LDA @320, R2    
+JEQ @LIM_CENTMILHAR 
+STA @15, R2     
+STA @510, R0    
+LDA @7, R3     
+STA @256, R3    
+RET
+
+LESS_24_HRS:
+LDA @14, R0      
+LDA @15, R1      
+LDA @7, R2
+
+CONCAT_LIMITE:
+ADDI $10, R3    
+SUBI $1, R1    
+CEQ @7, R1     
+JEQ @CHECK_LIM
+JMP @CONCAT_LIMITE
+
+CHECK_LIM:
+SOMA @14, R3    
+CLT @19, R3     
+JLT @FIM_LIMITE_DESPERTA  
+CEQ @19, R3     
+JEQ @EH_24_HORAS_LIMITE
+LDA @8, R0      
+STA @258, R0    
+JMP @LIM_UNIDADE 
+
+EH_24_HORAS_LIMITE:
+LDA @8, R0      
+STA @258, R0    
+LDA @7, R0      
+STA @14, R0     
+STA @15, R0     
+LDA @10, R0     
+CEQ @7, R0      
+JEQ @CONFERE_SEG2_LIMITE 
+JMP @LIM_UNIDADE
+
+COMPARA_MENOR_24:
+LDA @4, R0      
+LDA @5, R1      
+LDA @7, R2
+
+CONCAT:
+ADDI $10, R3  
+SUBI $1, R1   
+CEQ @7, R1    
+JEQ @CHECK
+JMP @CONCAT
+
+CHECK:
+SOMA @4, R3    
+CLT @19, R3     
+JLT @FIM_CONFIG_HORA  
+CEQ @19, R3     
+JEQ @EH_24_HORAS
+LDA @8, R0      
+STA @258, R0    
+JMP @CONFIG_SEG1 
