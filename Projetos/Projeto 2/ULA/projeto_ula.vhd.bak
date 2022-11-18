@@ -1,0 +1,416 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL; -- Biblioteca IEEE para funções aritméticas
+
+ENTITY projeto_ula IS
+   GENERIC (larguraDados : NATURAL := 32);
+   PORT (
+      entradaA, entradaB : IN STD_LOGIC_VECTOR((larguraDados - 1) DOWNTO 0);
+      sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+      inverteB : IN STD_LOGIC;
+      saida : OUT STD_LOGIC_VECTOR((larguraDados - 1) DOWNTO 0);
+      flagZero : OUT STD_LOGIC
+   );
+END ENTITY;
+
+ARCHITECTURE comportamento OF projeto_ula IS
+   constant zero : STD_LOGIC_VECTOR((larguraDados - 1) DOWNTO 0) := (OTHERS => '0');
+
+   signal carry0, carry1, carry2, carry3, carry4, carry5, carry6, 
+   carry7, carry8, carry9, carry10, carry11, carry12, carry13, 
+   carry14, carry15, carry16, carry17, carry18, carry19, carry20, 
+   carry21, carry22, carry23, carry24, carry25, carry26, carry27, 
+   carry28, carry29, carry30 : STD_LOGIC;
+   signal slt_hab : STD_LOGIC;
+   
+BEGIN
+
+ULA0 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(0),
+    entradaB => entradaB(0),
+    slt => slt_hab,
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => inverteB,
+    cOut => carry0,
+    saida => saida(0)
+);
+
+ULA1 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(1),
+    entradaB => entradaB(1),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry0,
+    cOut => carry1,
+    saida => saida(1)
+);
+  
+ULA2 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(2),
+    entradaB => entradaB(2),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry1,
+    cOut => carry2,
+    saida => saida(2)
+);
+
+ULA3 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(3),
+    entradaB => entradaB(3),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry2,
+    cOut => carry3,
+    saida => saida(3)
+);
+
+ULA4 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(4),
+    entradaB => entradaB(4),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry3,
+    cOut => carry4,
+    saida => saida(4)
+);
+
+ULA5 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(5),
+    entradaB => entradaB(5),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry4,
+    cOut => carry5,
+    saida => saida(5)
+);
+
+ULA6 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(6),
+    entradaB => entradaB(6),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry5,
+    cOut => carry6,
+    saida => saida(6)
+);
+
+ULA7 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(7),
+    entradaB => entradaB(7),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry6,
+    cOut => carry7,
+    saida => saida(7)
+);
+
+ULA8 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(8),
+    entradaB => entradaB(8),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry7,
+    cOut => carry8,
+    saida => saida(😎
+);
+
+ULA9 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(9),
+    entradaB => entradaB(9),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry8,
+    cOut => carry9,
+    saida => saida(9)
+);
+
+ULA10 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(10),
+    entradaB => entradaB(10),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry9,
+    cOut => carry10,
+    saida => saida(10)
+);
+
+ULA11 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(11),
+    entradaB => entradaB(11),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry10,
+    cOut => carry11,
+    saida => saida(11)
+);
+
+ULA12 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(12),
+    entradaB => entradaB(12),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry11,
+    cOut => carry12,
+    saida => saida(12)
+);
+
+ULA13 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(13),
+    entradaB => entradaB(13),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry12,
+    cOut => carry13,
+    saida => saida(13)
+);
+
+ULA14 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(14),
+    entradaB => entradaB(14),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry13,
+    cOut => carry14,
+    saida => saida(14)
+);
+
+ULA15 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(15),
+    entradaB => entradaB(15),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry14,
+    cOut => carry15,
+    saida => saida(15)
+);
+
+ULA16 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(16),
+    entradaB => entradaB(16),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry15,
+    cOut => carry16,
+    saida => saida(16)
+);
+
+ULA17 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(17),
+    entradaB => entradaB(17),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry16,
+    cOut => carry17,
+    saida => saida(17)
+);
+
+ULA18 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(18),
+    entradaB => entradaB(18),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry17,
+    cOut => carry18,
+    saida => saida(1😎
+);
+
+ULA19 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(19),
+    entradaB => entradaB(19),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry18,
+    cOut => carry19,
+    saida => saida(19)
+);
+
+ULA20 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(20),
+    entradaB => entradaB(20),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry19,
+    cOut => carry20,
+    saida => saida(20)
+);
+
+ULA21 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(21),
+    entradaB => entradaB(21),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry20,
+    cOut => carry21,
+    saida => saida(21)
+);
+
+ULA22 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(22),
+    entradaB => entradaB(22),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry21,
+    cOut => carry22,
+    saida => saida(22)
+);
+
+ULA23 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(23),
+    entradaB => entradaB(23),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry22,
+    cOut => carry23,
+    saida => saida(23)
+);
+
+ULA24 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(24),
+    entradaB => entradaB(24),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry23,
+    cOut => carry24,
+    saida => saida(24)
+);
+
+ULA25 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(25),
+    entradaB => entradaB(25),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry24,
+    cOut => carry25,
+    saida => saida(25)
+);
+
+ULA26 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(26),
+    entradaB => entradaB(26),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry25,
+    cOut => carry26,
+    saida => saida(26)
+);
+
+ULA27 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(27),
+    entradaB => entradaB(27),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry26,
+    cOut => carry27,
+    saida => saida(27)
+);
+
+ULA28 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(28),
+    entradaB => entradaB(28),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry27,
+    cOut => carry28,
+    saida => saida(2😎
+);
+
+ULA29 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(29),
+    entradaB => entradaB(29),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry28,
+    cOut => carry29,
+    saida => saida(29)
+);
+
+ULA30 : ENTITY work.ULA30bit
+PORT MAP(
+    entradaA => entradaA(30),
+    entradaB => entradaB(30),
+    slt => '0',
+    inverteB => inverteB, 
+    seletor => seletor,
+    cIn => carry29,
+    cOut => carry30,
+    saida => saida(30)
+);
+
+
+ULA31 : ENTITY work.ULA31bit
+PORT MAP(
+   entradaA => entradaA(31),
+   entradaB => entradaB(31),
+   slt      =>  '0',
+   inverteB => inverteB,
+   seletor  => seletor,
+   cIn      => carry30,
+   saida    =>  saida(31),
+   set      =>  slt_hab
+);
+
+
+flagZero <= '1' WHEN unsigned(saida) = unsigned(zero) ELSE '0';
+
+END ARCHITECTURE;

@@ -20,6 +20,15 @@ architecture arch_name of modelo_led is
 	
 begin
 	
+		FlipFlop1: entity work.flipflopGenerico
+			port map (
+				DIN		=> DATA_OUT(0), 
+				DOUT		=> LED_endereco1,
+				ENABLE 	=> (habilita AND endereco_LED(1) AND escrita AND NOT(DATA_ADDRESS_5)),
+				CLK 		=> CLK,
+				RST 		=> '0'
+		);
+		
 		FlipFlop2: entity work.flipflopGenerico
 			port map (
 				DIN		=> DATA_OUT(0), 
@@ -29,15 +38,6 @@ begin
 				RST 		=> '0'
 		);
 		
-		FlipFlop1: entity work.flipflopGenerico
-			port map (
-				DIN		=> DATA_OUT(0), 
-				DOUT		=> LED_endereco1,
-				ENABLE 	=> (habilita AND endereco_LED(1) AND escrita AND NOT(DATA_ADDRESS_5)),
-				CLK 		=> CLK,
-				RST 		=> '0'
-		);
-			
 		REG_LEDS : entity work.registradorGenerico generic map (larguraDados => 8)
 				 port map (
 							DIN => DATA_OUT,

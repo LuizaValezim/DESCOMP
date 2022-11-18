@@ -1,0 +1,21 @@
+Quartus Prime Archive log --	C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/projeto_ula.qarlog
+
+Archive:	C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/projeto_ula.qar
+Date:		Fri Nov 18 15:27:06 2022
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/ULA_0_30.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/ULA_31.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/Waveform.vwf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/muxGenerico2x1.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/muxGenerico4x1.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/projeto_ula.qpf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/projeto_ula.qsf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/projeto_ula.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/ULA/somadorGenerico_1bit.vhd
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 10 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
