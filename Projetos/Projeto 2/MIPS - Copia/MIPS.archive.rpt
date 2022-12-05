@@ -1,0 +1,129 @@
+Archive Project report for MIPS
+Tue Nov 29 14:17:03 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Tue Nov 29 14:17:03 2022 ;
+; Revision Name          ; MIPS                                  ;
+; Top-level Entity Name  ; MIPS                                  ;
+; Family                 ; Cyclone V                             ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Source control' contains:
+    Info: Project source and settings files
+    Info: Automatically detected source files
+Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
+Critical Warning: Analysis & Elaboration was not run successfully.
+    Critical Warning: The 'Automatically detected source files' file subset will attempt to guess which files are needed. The archive file will likely be larger than required and may still be incomplete.
+Warning (225010): Analysis was not performed on the current project. The Quartus Prime software may not be able to automatically locate all project files.
+Info: Archive will store files relative to the closest common parent directory
+Info (13213): Using common directory C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive 'C:/Users/Luiza Valezim/Downloads/MIPS.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'MIPS.archive.rpt'
+Error (23031): Evaluation of Tcl script c:/intelfpga_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl unsuccessful
+Error: Quartus Prime Shell was unsuccessful. 4 errors, 11 warnings
+    Error: Peak virtual memory: 4734 megabytes
+    Error: Processing ended: Tue Nov 29 14:17:03 2022
+    Error: Elapsed time: 00:00:14
+    Error: Total CPU time (on all processors): 00:00:12
+
+
++--------------------------------------------------------------+
+; Files Archived                                               ;
++--------------------------------------------------------------+
+; File Name                                                    ;
++--------------------------------------------------------------+
+; bancoReg.vhd                                                 ;
+; c5_pin_model_dump.txt                                        ;
+; c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf ;
+; ControleULA.vhd                                              ;
+; conversorHex7Seg.vhd                                         ;
+; Decoder.vhd                                                  ;
+; DecoderFunct.vhd                                             ;
+; DecoderOpcode.vhd                                            ;
+; edgeDetector.vhd                                             ;
+; extendSignal.vhd                                             ;
+; flipflopGenerico.vhd                                         ;
+; memoriaRAM.vhd                                               ;
+; memoriaROM.vhd                                               ;
+; MIPS.qarlog                                                  ;
+; MIPS.qpf                                                     ;
+; MIPS.qsf                                                     ;
+; MIPS.vhd                                                     ;
+; modelo_7seg.vhd                                              ;
+; muxGenerico2x1.vhd                                           ;
+; muxGenerico4x1.vhd                                           ;
+; output_files/Aula17.asm.rpt                                  ;
+; output_files/Aula17.cdf                                      ;
+; output_files/Aula17.done                                     ;
+; output_files/Aula17.eda.rpt                                  ;
+; output_files/Aula17.fit.rpt                                  ;
+; output_files/Aula17.fit.smsg                                 ;
+; output_files/Aula17.fit.summary                              ;
+; output_files/Aula17.flow.rpt                                 ;
+; output_files/Aula17.jdi                                      ;
+; output_files/Aula17.map.rpt                                  ;
+; output_files/Aula17.map.summary                              ;
+; output_files/Aula17.pin                                      ;
+; output_files/Aula17.sld                                      ;
+; output_files/Aula17.sof                                      ;
+; output_files/Aula17.sta.rpt                                  ;
+; output_files/Aula17.sta.summary                              ;
+; output_files/MIPS.flow.rpt                                   ;
+; output_files/MIPS.map.rpt                                    ;
+; output_files/MIPS.map.summary                                ;
+; registradorGenerico.vhd                                      ;
+; shiftSignal.vhd                                              ;
+; shiftSinal.vhd                                               ;
+; somaConstante.vhd                                            ;
+; somadorGenerico.vhd                                          ;
+; somadorGenerico1bit.vhd                                      ;
+; Toplevel.mif                                                 ;
+; ULA.vhd                                                      ;
+; ULA_0_30.vhd                                                 ;
+; ULA_31.vhd                                                   ;
+; Waveform.vwf                                                 ;
++--------------------------------------------------------------+
+
+

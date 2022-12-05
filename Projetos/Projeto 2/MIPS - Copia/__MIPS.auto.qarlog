@@ -1,0 +1,65 @@
+Quartus Prime Archive log --	C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/__MIPS.auto.qarlog
+
+Archive:	C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/__MIPS.auto.qar
+Date:		Tue Nov 29 14:17:02 2022
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/db/Aula17.cbx.xml
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/db/Aula17.ram0_bancoReg_a8867fcd.hdl.mif
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/db/Aula17.ram0_bancoReg_a8bc2223.hdl.mif
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/db/Aula17.ram0_memoriaROM_618a4d.hdl.mif
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/db/MIPS.qpf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.asm.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.cdf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.done
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.eda.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.fit.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.fit.smsg
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.fit.summary
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.flow.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.jdi
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.map.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.map.summary
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.pin
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.sld
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.sof
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.sta.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/Aula17.sta.summary
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/MIPS.flow.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/MIPS.map.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP/Projetos/Projeto 2/MIPS - Copia/output_files/MIPS.map.summary
+ControleULA.vhd
+Decoder.vhd
+DecoderFunct.vhd
+DecoderOpcode.vhd
+MIPS.qarlog
+MIPS.qsf
+MIPS.vhd
+Toplevel.mif
+ULA.vhd
+ULA_0_30.vhd
+ULA_31.vhd
+Waveform.vwf
+bancoReg.vhd
+c5_pin_model_dump.txt
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+conversorHex7Seg.vhd
+edgeDetector.vhd
+extendSignal.vhd
+flipflopGenerico.vhd
+memoriaRAM.vhd
+memoriaROM.vhd
+modelo_7seg.vhd
+muxGenerico2x1.vhd
+muxGenerico4x1.vhd
+registradorGenerico.vhd
+shiftSignal.vhd
+shiftSinal.vhd
+somaConstante.vhd
+somadorGenerico.vhd
+somadorGenerico1bit.vhd
+	======= Total: 54 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
