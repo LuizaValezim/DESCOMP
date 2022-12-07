@@ -3,46 +3,61 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity Decoder is
-	port (
-		opcode : in std_logic_vector(5 downto 0);
-		funct : in std_logic_vector(5 downto 0);
-		output : out std_logic_vector(13 downto 0)
-	);
+
+  port ( 
+		opcode 	: in std_logic_vector(5 DOWNTO 0);
+		funct	 	: in std_logic_vector(5 DOWNTO 0);
+		ula_ctrl : out std_logic_vector(3 DOWNTO 0);
+		palavra	: out std_logic_vector(15 DOWNTO 0)
+  );
+  
 end entity;
 
-architecture arch_name of Decoder is
-	constant addr : std_logic_vector(5 downto 0) := "100000";
-	constant subr : std_logic_vector(5 downto 0) := "100010";
-	constant orr : std_logic_vector(5 downto 0) := "100101";
-	
-	constant lw : std_logic_vector(5 downto 0) := "100011";
-	constant sw : std_logic_vector(5 downto 0) := "101011";
-	constant beq : std_logic_vector(5 downto 0) := "000100";
-	constant j : std_logic_vector(5 downto 0) := "000010";
-	constant slt : std_logic_vector(5 downto 0) := "101010";
-	
-	constant addi : std_logic_vector(5 downto 0) := "001000";
-	constant andi : std_logic_vector(5 downto 0) := "001100";
-	constant slti : std_logic_vector(5 downto 0) := "001010";
-	constant ori : std_logic_vector(5 downto 0) := "001101";
-	
-	constant jal : std_logic_vector(5 downto 0) := "000011";
-	constant jr : std_logic_vector(5 downto 0) := "001000";
-	constant lui : std_logic_vector(5 downto 0) := "001111";
-	constant bne : std_logic_vector(5 downto 0) := "000101";
+architecture arquitetura of Decoder is
 
+	signal instruction_R		 	: std_logic;
+	signal jr    					: std_logic;
+	signal sll_signal          : std_logic;
+	signal srl_signal          : std_logic;
+	signal ULA_function  		: std_logic_vector(3 DOWNTO 0);
+	signal ULA_opcode 		   : std_logic_vector(3 DOWNTO 0);
+	signal MUX_ULA_out 	      : std_logic_vector(3 DOWNTO 0);
+	signal decoder_out		   : std_logic_vector(11 DOWNTO 0);
+	
 begin
 
-	output <= "0" & "000011" & "0" & "01" & "0010" when (opcode = lw) else
-			  "0" & "000001" & "0" & "00" & "0001" when (opcode = sw) else
-			  "0" & "000000" & "0" & "00" & "1000" when (opcode = beq) else
-			  "0" & "000000" & "0" & "00" & "0100" when (opcode = bne) else
-			  "0" & "001010" & "1" & "00" & "0000" when (((funct = addr) or (funct = subr) or (funct = orr) or (funct = andr) or (funct = slt)) and opcode = "000000") else 
-			  "0" & "000011" & "0" & "00" & "0000" when ((opcode = addi) or (opcode = slti)) else
-			  "0" & "000111" & "0" & "00" & "0000" when ((opcode = ori) or (opcode = andi)) else
-			  "0" & "100000" & "0" & "00" & "0000" when (opcode = j) else
-			  "0" & "000010" & "0" & "11" & "0000" when (opcode = lui) else
-			  "0" & "110010" & "0" & "10" & "0000" when (opcode = jal) else
-			  "1" & "000000" & "1" & "00" & "0000" when (funct = jr) else
-			  "00000000000000";
+		ULA_function(3) <= '0';
+		ULA_function(2) <= '1' when (funct = 6x"22" OR funct = 6x"2A") else '0';
+		ULA_function(1) <= '1' when (funct = 6x"20" OR funct = 6x"22" OR funct = 6x"2A") else '0';
+		ULA_function(0) <= '1' when (funct = 6x"25" OR funct = 6x"2A" OR funct = 6x"27") else '0';
+		ULA_opcode(3) <= '0';
+		
+		ULA_opcode(2) <= '1' when (opcode = 6x"04" OR opcode = 6x"0A" OR opcode = 6x"05") else '0';
+		ULA_opcode(1) <= '1' when (opcode = 6x"04" OR opcode = 6x"2B" OR opcode = 6x"23" OR opcode = 6x"0A" OR opcode = 6x"08" OR opcode = 6x"05") else '0';
+		ULA_opcode(0) <= '1' when (opcode = 6x"0A" OR opcode = 6x"0D") else '0';
+
+		
+		MUX_ULA_CTRL : entity work.muxGenerico2x1 generic map(larguraDados => 4)
+			port map(
+				entradaA_MUX => ULA_opcode,
+				entradaB_MUX => ULA_function,
+				seletor_MUX =>  instruction_R,
+				saida_MUX => MUX_ULA_out
+			);
+			
+		CONTROL_UNIT : entity work.Decoder_Instr 
+			port map(
+				opcode 	=> opcode,
+				tipoR	 	=> instruction_R,
+				saida		=> decoder_out
+			);
+			
+		jr <= '1' when (funct = 6x"08" AND instruction_R = '1') else '0';
+		sll_signal <= '1' when (funct = 6x"00" AND instruction_R = '1') else '0';
+		srl_signal <= '1' when (funct = 6x"02" AND instruction_R = '1') else '0';
+
+		ula_ctrl <= MUX_ULA_out;
+			
+		palavra <= sll_signal & srl_signal & '0' & jr & decoder_out;
+		
 end architecture;

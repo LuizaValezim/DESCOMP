@@ -1,0 +1,124 @@
+Archive Project report for mips
+Tue Dec 06 21:54:09 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Tue Dec 06 21:54:09 2022 ;
+; Revision Name          ; mips                                  ;
+; Top-level Entity Name  ; TopLevel                              ;
+; Family                 ; Cyclone V                             ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Custom' contains:
+    Info: Incremental compilation and Rapid Recompile database files (version-incompatible)
+    Info: Automatically detected source files
+    Info: Project source and settings files
+Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
+Info: Archive will store files relative to the closest common parent directory
+Info (13213): Using common directory C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive 'C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/mips.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'mips.archive.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4740 megabytes
+    Info: Processing ended: Tue Dec 06 21:54:09 2022
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++-------------------------------------------------------------------------+
+; Files Archived                                                          ;
++-------------------------------------------------------------------------+
+; File Name                                                               ;
++-------------------------------------------------------------------------+
+; bancoReg.vhd                                                            ;
+; c5_pin_model_dump.txt                                                   ;
+; c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf            ;
+; conversorHex7Seg.vhd                                                    ;
+; db/mips.db_info                                                         ;
+; Decoder.vhd                                                             ;
+; Decoder_Instr.vhd                                                       ;
+; extendSignal.vhd                                                        ;
+; incremental_db/compiled_partitions/mips.db_info                         ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.cdb          ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.dfp          ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.hbdb.cdb     ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.hbdb.hdb     ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.hbdb.sig     ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.hdb          ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.logdb        ;
+; incremental_db/compiled_partitions/mips.root_partition.cmp.rcfdb        ;
+; incremental_db/compiled_partitions/mips.root_partition.map.cdb          ;
+; incremental_db/compiled_partitions/mips.root_partition.map.dpi          ;
+; incremental_db/compiled_partitions/mips.root_partition.map.hbdb.cdb     ;
+; incremental_db/compiled_partitions/mips.root_partition.map.hbdb.hb_info ;
+; incremental_db/compiled_partitions/mips.root_partition.map.hbdb.hdb     ;
+; incremental_db/compiled_partitions/mips.root_partition.map.hbdb.sig     ;
+; incremental_db/compiled_partitions/mips.root_partition.map.hdb          ;
+; incremental_db/compiled_partitions/mips.root_partition.map.kpt          ;
+; incremental_db/compiled_partitions/mips.rrp.hdb                         ;
+; incremental_db/compiled_partitions/mips.rrs.cdb                         ;
+; LUI.vhd                                                                 ;
+; mips.archive.rpt                                                        ;
+; mips.qpf                                                                ;
+; mips.qsf                                                                ;
+; muxGenerico2x1.vhd                                                      ;
+; muxGenerico2x1_1bit.vhd                                                 ;
+; muxGenerico4x1.vhd                                                      ;
+; muxGenerico4x1_1bit.vhd                                                 ;
+; RAM.vhd                                                                 ;
+; registradorGenerico.vhd                                                 ;
+; ROM.vhd                                                                 ;
+; Shift.vhd                                                               ;
+; somaConstante.vhd                                                       ;
+; somadorSinais.vhd                                                       ;
+; somadorULA.vhd                                                          ;
+; TopLevel.mif                                                            ;
+; TopLevel.vhd                                                            ;
+; ULA.vhd                                                                 ;
+; ULA_0_31.vhd                                                            ;
+; ULASomaSub.vhd                                                          ;
++-------------------------------------------------------------------------+
+
+

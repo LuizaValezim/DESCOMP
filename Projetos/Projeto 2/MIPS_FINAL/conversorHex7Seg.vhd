@@ -2,8 +2,7 @@ library IEEE;
 use ieee.std_logic_1164.all;
 
 entity conversorHex7Seg is
-    port
-    (
+    port(
         -- Input ports
         dadoHex : in  std_logic_vector(3 downto 0);
         apaga   : in  std_logic := '0';

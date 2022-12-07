@@ -1,0 +1,1753 @@
+Analysis & Synthesis report for mips
+Tue Dec 06 21:47:52 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |TopLevel
+ 13. Parameter Settings for User Entity Instance: registradorGenerico:PC
+ 14. Parameter Settings for User Entity Instance: somaConstante:incPC
+ 15. Parameter Settings for User Entity Instance: somadorSinais:incImediato
+ 16. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_BEQ
+ 17. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_PROXPC
+ 18. Parameter Settings for User Entity Instance: muxGenerico4x1:MUX_BANREG
+ 19. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_ULAB
+ 20. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_JMP
+ 21. Parameter Settings for User Entity Instance: muxGenerico4x1:MUX_ULA_MEM
+ 22. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_ULA_OUT
+ 23. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_SHIFTER
+ 24. Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_HEX
+ 25. Parameter Settings for User Entity Instance: ROM:ROM
+ 26. Parameter Settings for User Entity Instance: RAM:RAM
+ 27. Parameter Settings for User Entity Instance: bancoReg:bancoRegistradores
+ 28. Parameter Settings for User Entity Instance: Shift:shift
+ 29. Parameter Settings for User Entity Instance: extendSignal:extendSignal
+ 30. Parameter Settings for User Entity Instance: extendSignal:extendSignal|muxGenerico2x1:MUX_extended
+ 31. Parameter Settings for User Entity Instance: LUI:LUI
+ 32. Parameter Settings for User Entity Instance: Decoder:decoder|muxGenerico2x1:MUX_ULA_CTRL
+ 33. Port Connectivity Checks: "conversorHex7Seg:HEX_5"
+ 34. Port Connectivity Checks: "conversorHex7Seg:HEX_4"
+ 35. Port Connectivity Checks: "conversorHex7Seg:HEX_3"
+ 36. Port Connectivity Checks: "conversorHex7Seg:HEX_2"
+ 37. Port Connectivity Checks: "conversorHex7Seg:HEX_1"
+ 38. Port Connectivity Checks: "conversorHex7Seg:HEX_0"
+ 39. Port Connectivity Checks: "Decoder:decoder|muxGenerico2x1:MUX_ULA_CTRL"
+ 40. Port Connectivity Checks: "Decoder:decoder"
+ 41. Port Connectivity Checks: "extendSignal:extendSignal|muxGenerico2x1:MUX_extended"
+ 42. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_31"
+ 43. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_30"
+ 44. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_29"
+ 45. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_28"
+ 46. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_27"
+ 47. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_26"
+ 48. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_25"
+ 49. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_24"
+ 50. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_23"
+ 51. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_22"
+ 52. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_21"
+ 53. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_20"
+ 54. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_19"
+ 55. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_18"
+ 56. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_17"
+ 57. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_16"
+ 58. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_15"
+ 59. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_14"
+ 60. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_13"
+ 61. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_12"
+ 62. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_11"
+ 63. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_10"
+ 64. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_9"
+ 65. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_8"
+ 66. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_7"
+ 67. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_6"
+ 68. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_5"
+ 69. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_4"
+ 70. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_3"
+ 71. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_2"
+ 72. Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_1"
+ 73. Port Connectivity Checks: "RAM:RAM"
+ 74. Port Connectivity Checks: "muxGenerico2x1:MUX_HEX"
+ 75. Port Connectivity Checks: "muxGenerico2x1:MUX_JMP"
+ 76. Port Connectivity Checks: "muxGenerico4x1:MUX_BANREG"
+ 77. Port Connectivity Checks: "somadorSinais:incImediato"
+ 78. Port Connectivity Checks: "registradorGenerico:PC"
+ 79. Post-Synthesis Netlist Statistics for Top Partition
+ 80. Elapsed Time Per Partition
+ 81. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Dec 06 21:47:52 2022       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                   ; mips                                        ;
+; Top-level Entity Name           ; TopLevel                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 2848                                        ;
+; Total pins                      ; 169                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; TopLevel           ; mips               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                                  ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; muxGenerico4x1.vhd               ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1.vhd      ;         ;
+; somadorULA.vhd                   ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorULA.vhd          ;         ;
+; muxGenerico4x1_1bit.vhd          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1_1bit.vhd ;         ;
+; muxGenerico2x1_1bit.vhd          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1_1bit.vhd ;         ;
+; conversorHex7Seg.vhd             ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/conversorHex7Seg.vhd    ;         ;
+; muxGenerico2x1.vhd               ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1.vhd      ;         ;
+; bancoReg.vhd                     ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/bancoReg.vhd            ;         ;
+; somaConstante.vhd                ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somaConstante.vhd       ;         ;
+; registradorGenerico.vhd          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/registradorGenerico.vhd ;         ;
+; RAM.vhd                          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd                 ;         ;
+; ROM.vhd                          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ROM.vhd                 ;         ;
+; TopLevel.vhd                     ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd            ;         ;
+; LUI.vhd                          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/LUI.vhd                 ;         ;
+; Shift.vhd                        ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Shift.vhd               ;         ;
+; extendSignal.vhd                 ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/extendSignal.vhd        ;         ;
+; ULA.vhd                          ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA.vhd                 ;         ;
+; ULA_0_31.vhd                     ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA_0_31.vhd            ;         ;
+; somadorSinais.vhd                ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorSinais.vhd       ;         ;
+; Decoder.vhd                      ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder.vhd             ;         ;
+; Decoder_Instr.vhd                ; yes             ; User VHDL File  ; C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder_Instr.vhd       ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 2254         ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 1780         ;
+;     -- 7 input functions                    ; 234          ;
+;     -- 6 input functions                    ; 1060         ;
+;     -- 5 input functions                    ; 86           ;
+;     -- 4 input functions                    ; 115          ;
+;     -- <=3 input functions                  ; 285          ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 2848         ;
+;                                             ;              ;
+; I/O pins                                    ; 169          ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[0]~input ;
+; Maximum fan-out                             ; 2848         ;
+; Total fan-out                               ; 18355        ;
+; Average fan-out                             ; 3.70         ;
++---------------------------------------------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                              ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                 ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------+---------------------+--------------+
+; |TopLevel                                    ; 1780 (2)            ; 2848 (0)                  ; 0                 ; 0          ; 169  ; 0            ; |TopLevel                                                           ; TopLevel            ; work         ;
+;    |Decoder:decoder|                         ; 29 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|Decoder:decoder                                           ; Decoder             ; work         ;
+;       |Decoder_Instr:CONTROL_UNIT|           ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|Decoder:decoder|Decoder_Instr:CONTROL_UNIT                ; Decoder_Instr       ; work         ;
+;       |muxGenerico2x1:MUX_ULA_CTRL|          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|Decoder:decoder|muxGenerico2x1:MUX_ULA_CTRL               ; muxGenerico2x1      ; work         ;
+;    |RAM:RAM|                                 ; 795 (795)           ; 2048 (2048)               ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|RAM:RAM                                                   ; RAM                 ; work         ;
+;    |ROM:ROM|                                 ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ROM:ROM                                                   ; ROM                 ; work         ;
+;    |ULA:ULA|                                 ; 153 (9)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA                                                   ; ULA                 ; work         ;
+;       |ULA_0_31:ULA_0|                       ; 6 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_0                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_0|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_0|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_0|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_10|                      ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_10                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_10|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_10|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_11|                      ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_11                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_11|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_11|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_11|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_12|                      ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_12                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_12|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_12|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_12|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_13|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_13                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_13|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_13|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_13|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_14|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_14                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_14|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_14|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_14|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_15|                      ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_15                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_15|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_15|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_15|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_16|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_16                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_16|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_16|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_16|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_17|                      ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_17                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_17|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_17|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_18|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_18                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_18|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_18|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_18|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_19|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_19                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_19|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_19|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_19|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_1|                       ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_1                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_1|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_1|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_1|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_20|                      ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_20                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_20|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_20|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_21|                      ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_21                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_21|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_21|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_21|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_22|                      ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_22                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_22|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_22|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_23|                      ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_23                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_23|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_23|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_23|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_24|                      ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_24                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_24|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_24|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_24|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_25|                      ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_25                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_25|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_25|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_25|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_26|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_26                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_26|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_26|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_26|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_27|                      ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_27                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_27|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_27|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_28|                      ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_28                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_28|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_28|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_28|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_29|                      ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_29                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_29|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_29|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_29|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_2|                       ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_2                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_2|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_2|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_30|                      ; 6 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_30                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_30|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_30|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_30|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_31|                      ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_31                                   ; ULA_0_31            ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_31|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_3|                       ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_3                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_3|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_3|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_3|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_4|                       ; 6 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_4                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_4|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_4|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_4|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_5|                       ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_5                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_5|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_5|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_6|                       ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_6                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_6|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_6|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_6|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_7|                       ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_7                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_7|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_7|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |ULA_0_31:ULA_8|                       ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_8                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_8|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_8|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_8|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;       |ULA_0_31:ULA_9|                       ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_9                                    ; ULA_0_31            ; work         ;
+;          |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_9|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;          |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_9|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;          |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|ULA:ULA|ULA_0_31:ULA_9|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |bancoReg:bancoRegistradores|             ; 536 (536)           ; 768 (768)                 ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|bancoReg:bancoRegistradores                               ; bancoReg            ; work         ;
+;    |conversorHex7Seg:HEX_0|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|conversorHex7Seg:HEX_0                                    ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:HEX_1|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|conversorHex7Seg:HEX_1                                    ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:HEX_2|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|conversorHex7Seg:HEX_2                                    ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:HEX_3|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|conversorHex7Seg:HEX_3                                    ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:HEX_4|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|conversorHex7Seg:HEX_4                                    ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:HEX_5|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|conversorHex7Seg:HEX_5                                    ; conversorHex7Seg    ; work         ;
+;    |extendSignal:extendSignal|               ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|extendSignal:extendSignal                                 ; extendSignal        ; work         ;
+;       |muxGenerico2x1:MUX_extended|          ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|extendSignal:extendSignal|muxGenerico2x1:MUX_extended     ; muxGenerico2x1      ; work         ;
+;    |muxGenerico2x1:MUX_HEX|                  ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|muxGenerico2x1:MUX_HEX                                    ; muxGenerico2x1      ; work         ;
+;    |muxGenerico2x1:MUX_PROXPC|               ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|muxGenerico2x1:MUX_PROXPC                                 ; muxGenerico2x1      ; work         ;
+;    |muxGenerico2x1:MUX_SHIFTER|              ; 67 (67)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|muxGenerico2x1:MUX_SHIFTER                                ; muxGenerico2x1      ; work         ;
+;    |muxGenerico4x1:MUX_BANREG|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|muxGenerico4x1:MUX_BANREG                                 ; muxGenerico4x1      ; work         ;
+;    |muxGenerico4x1:MUX_ULA_MEM|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|muxGenerico4x1:MUX_ULA_MEM                                ; muxGenerico4x1      ; work         ;
+;    |registradorGenerico:PC|                  ; 3 (3)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|registradorGenerico:PC                                    ; registradorGenerico ; work         ;
+;    |somaConstante:incPC|                     ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|somaConstante:incPC                                       ; somaConstante       ; work         ;
+;    |somadorSinais:incImediato|               ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|somadorSinais:incImediato                                 ; somadorSinais       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++---------------------------------------------+---------------------------------------------+
+; Register name                               ; Reason for Removal                          ;
++---------------------------------------------+---------------------------------------------+
+; bancoReg:bancoRegistradores|registrador~582 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~646 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~550 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~614 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~838 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~902 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~806 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~870 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~583 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~647 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~551 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~615 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~839 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~903 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~807 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~871 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~584 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~648 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~552 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~616 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~840 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~904 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~808 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~872 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~585 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~649 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~553 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~617 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~841 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~905 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~809 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~873 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~586 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~650 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~554 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~618 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~842 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~906 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~810 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~874 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~587 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~651 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~555 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~619 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~843 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~907 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~811 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~875 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~588 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~652 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~556 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~620 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~844 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~908 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~812 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~876 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~589 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~653 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~557 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~621 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~845 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~909 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~813 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~877 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~590 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~654 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~558 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~622 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~846 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~910 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~814 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~878 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~591 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~655 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~559 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~623 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~847 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~911 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~815 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~879 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~592 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~656 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~560 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~624 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~848 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~912 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~816 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~880 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~593 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~657 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~561 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~625 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~849 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~913 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~817 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~881 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~594 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~658 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~562 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~626 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~850 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~914 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~818 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~882 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~595 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~659 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~563 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~627 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~851 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~915 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~819 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~883 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~596 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~660 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~564 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~628 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~852 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~916 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~820 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~884 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~597 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~661 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~565 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~629 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~853 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~917 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~821 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~885 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~598 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~662 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~566 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~630 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~854 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~918 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~822 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~886 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~599 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~663 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~567 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~631 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~855 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~919 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~823 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~887 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~600 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~664 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~568 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~632 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~856 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~920 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~824 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~888 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~601 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~665 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~569 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~633 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~857 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~921 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~825 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~889 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~602 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~666 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~570 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~634 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~858 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~922 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~826 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~890 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~603 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~667 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~571 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~635 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~859 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~923 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~827 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~891 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~604 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~668 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~572 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~636 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~860 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~924 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~828 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~892 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~605 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~669 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~573 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~637 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~861 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~925 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~829 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~893 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~606 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~670 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~574 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~638 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~862 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~926 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~830 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~894 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~607 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~671 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~575 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~639 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~863 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~927 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~831 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~895 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~608 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~672 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~576 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~640 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~864 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~928 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~832 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~896 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~609 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~673 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~577 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~641 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~865 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~929 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~833 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~897 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~610 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~674 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~578 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~642 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~866 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~930 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~834 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~898 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~611 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~675 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~579 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~643 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~867 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~931 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~835 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~899 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~612 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~676 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~580 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~644 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~868 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~932 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~836 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~900 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~613 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~677 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~581 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~645 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~869 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~933 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~837 ; Stuck at GND due to stuck port clock_enable ;
+; bancoReg:bancoRegistradores|registrador~901 ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 256     ;                                             ;
++---------------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                 ;
++---------------------------------------------+--------------------------------+----------------------------------------------+
+; Register name                               ; Reason for Removal             ; Registers Removed due to This Register       ;
++---------------------------------------------+--------------------------------+----------------------------------------------+
+; bancoReg:bancoRegistradores|registrador~585 ; Stuck at GND                   ; bancoReg:bancoRegistradores|registrador~588, ;
+;                                             ; due to stuck port clock_enable ; bancoReg:bancoRegistradores|registrador~652, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~556, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~620, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~844, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~908, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~812, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~876, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~591, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~655, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~559, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~623, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~847, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~911, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~815, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~879, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~592, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~656, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~560, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~624, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~848, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~912, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~816, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~880, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~594, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~658, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~562, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~626, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~850, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~914, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~818, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~882, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~597, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~661, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~565, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~629, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~853, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~917, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~821, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~885, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~600, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~664, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~568, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~632, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~856, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~920, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~824, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~888, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~603, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~667, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~571, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~635, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~859, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~923, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~827, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~891, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~606, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~670, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~574, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~638, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~862, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~926, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~830, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~894, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~609, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~673, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~577, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~641, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~865, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~929, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~833, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~897, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~612, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~676, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~580, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~644, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~868, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~932, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~836, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~900  ;
+; bancoReg:bancoRegistradores|registrador~599 ; Stuck at GND                   ; bancoReg:bancoRegistradores|registrador~601, ;
+;                                             ; due to stuck port clock_enable ; bancoReg:bancoRegistradores|registrador~665, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~569, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~633, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~857, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~921, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~825, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~889, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~602, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~666, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~570, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~634, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~858, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~922, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~826, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~890, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~604, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~668, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~572, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~636, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~860, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~924, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~828, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~892, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~605, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~669, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~573, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~637, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~861, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~925, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~829, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~893, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~608, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~672, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~576, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~640, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~864, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~928, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~832, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~896  ;
+; bancoReg:bancoRegistradores|registrador~610 ; Stuck at GND                   ; bancoReg:bancoRegistradores|registrador~611, ;
+;                                             ; due to stuck port clock_enable ; bancoReg:bancoRegistradores|registrador~675, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~579, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~643, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~867, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~931, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~835, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~899, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~613, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~677, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~581, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~645, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~869, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~933, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~837, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~901  ;
+; bancoReg:bancoRegistradores|registrador~596 ; Stuck at GND                   ; bancoReg:bancoRegistradores|registrador~598, ;
+;                                             ; due to stuck port clock_enable ; bancoReg:bancoRegistradores|registrador~662, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~566, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~630, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~854, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~918, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~822, ;
+;                                             ;                                ; bancoReg:bancoRegistradores|registrador~886  ;
++---------------------------------------------+--------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2848  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2818  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TopLevel|registradorGenerico:PC|DOUT[1]                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TopLevel|registradorGenerico:PC|DOUT[31]                                     ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |TopLevel|registradorGenerico:PC|DOUT[14]                                     ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |TopLevel|ULA:ULA|ULA_0_31:ULA_17|muxGenerico4x1_1bit:MUX_RESULTADO|saida_MUX ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |TopLevel|ULA:ULA|ULA_0_31:ULA_28|muxGenerico2x1_1bit:MUX_ENTB|saida_MUX      ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |TopLevel|muxGenerico4x1:MUX_BANREG|saida_MUX[1]                              ;
+; 7:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |TopLevel|muxGenerico2x1:MUX_SHIFTER|saida_MUX[5]                             ;
+; 7:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |TopLevel|muxGenerico2x1:MUX_SHIFTER|saida_MUX[16]                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |TopLevel ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; simulacao      ; true  ; Enumerated                                      ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registradorGenerico:PC ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: somaConstante:incPC ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; larguradados   ; 32    ; Signed Integer                          ;
+; constante      ; 4     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: somadorSinais:incImediato ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_BEQ ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_PROXPC ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico4x1:MUX_BANREG ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; larguradados   ; 5     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_ULAB ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_JMP ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico4x1:MUX_ULA_MEM ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_ULA_OUT ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_SHIFTER ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MUX_HEX ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM:ROM ;
++-----------------+-------+----------------------------+
+; Parameter Name  ; Value ; Type                       ;
++-----------------+-------+----------------------------+
+; datawidth       ; 32    ; Signed Integer             ;
+; addrwidth       ; 32    ; Signed Integer             ;
+; memoryaddrwidth ; 6     ; Signed Integer             ;
++-----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM:RAM ;
++-----------------+-------+----------------------------+
+; Parameter Name  ; Value ; Type                       ;
++-----------------+-------+----------------------------+
+; datawidth       ; 32    ; Signed Integer             ;
+; addrwidth       ; 32    ; Signed Integer             ;
+; memoryaddrwidth ; 6     ; Signed Integer             ;
++-----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bancoReg:bancoRegistradores ;
++---------------------+-------+--------------------------------------------+
+; Parameter Name      ; Value ; Type                                       ;
++---------------------+-------+--------------------------------------------+
+; larguradados        ; 32    ; Signed Integer                             ;
+; larguraendbancoregs ; 5     ; Signed Integer                             ;
++---------------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Shift:shift ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; larguradados   ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: extendSignal:extendSignal ;
++--------------------+-------+-------------------------------------------+
+; Parameter Name     ; Value ; Type                                      ;
++--------------------+-------+-------------------------------------------+
+; larguradadoentrada ; 16    ; Signed Integer                            ;
+; larguradadosaida   ; 32    ; Signed Integer                            ;
++--------------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: extendSignal:extendSignal|muxGenerico2x1:MUX_extended ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; larguradados   ; 16    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LUI:LUI ;
++--------------------+-------+-------------------------+
+; Parameter Name     ; Value ; Type                    ;
++--------------------+-------+-------------------------+
+; larguradadoentrada ; 16    ; Signed Integer          ;
+; larguradadosaida   ; 32    ; Signed Integer          ;
++--------------------+-------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Decoder:decoder|muxGenerico2x1:MUX_ULA_CTRL ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:HEX_5" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; apaga    ; Input ; Info     ; Stuck at GND         ;
+; negativo ; Input ; Info     ; Stuck at GND         ;
+; overflow ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:HEX_4" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; apaga    ; Input ; Info     ; Stuck at GND         ;
+; negativo ; Input ; Info     ; Stuck at GND         ;
+; overflow ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:HEX_3" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; apaga    ; Input ; Info     ; Stuck at GND         ;
+; negativo ; Input ; Info     ; Stuck at GND         ;
+; overflow ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:HEX_2" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; apaga    ; Input ; Info     ; Stuck at GND         ;
+; negativo ; Input ; Info     ; Stuck at GND         ;
+; overflow ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:HEX_1" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; apaga    ; Input ; Info     ; Stuck at GND         ;
+; negativo ; Input ; Info     ; Stuck at GND         ;
+; overflow ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:HEX_0" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; apaga    ; Input ; Info     ; Stuck at GND         ;
+; negativo ; Input ; Info     ; Stuck at GND         ;
+; overflow ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "Decoder:decoder|muxGenerico2x1:MUX_ULA_CTRL" ;
++-----------------+-------+----------+------------------------------------+
+; Port            ; Type  ; Severity ; Details                            ;
++-----------------+-------+----------+------------------------------------+
+; entradaa_mux[3] ; Input ; Info     ; Stuck at GND                       ;
+; entradab_mux[3] ; Input ; Info     ; Stuck at GND                       ;
++-----------------+-------+----------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Decoder:decoder"                                                                           ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; ula_ctrl[3] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "extendSignal:extendSignal|muxGenerico2x1:MUX_extended" ;
++--------------+-------+----------+-------------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                         ;
++--------------+-------+----------+-------------------------------------------------+
+; entradab_mux ; Input ; Info     ; Stuck at GND                                    ;
++--------------+-------+----------+-------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_31" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_30" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_29" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_28" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_27" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_26" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_25" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_24" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_23" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_22" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_21" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_20" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_19" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_18" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_17" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_16" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_15" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_14" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_13" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_12" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_11" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_10" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; slt  ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_9" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_8" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_7" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_6" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_5" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_4" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_3" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_2" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ULA:ULA|ULA_0_31:ULA_1" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; slt  ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "RAM:RAM"        ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; habilita ; Input ; Info     ; Stuck at VCC ;
++----------+-------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "muxGenerico2x1:MUX_HEX"                                                                          ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; saida_mux[31..24] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "muxGenerico2x1:MUX_JMP"   ;
++--------------------+-------+----------+--------------+
+; Port               ; Type  ; Severity ; Details      ;
++--------------------+-------+----------+--------------+
+; entradab_mux[1..0] ; Input ; Info     ; Stuck at GND ;
++--------------------+-------+----------+--------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "muxGenerico4x1:MUX_BANREG" ;
++--------------+-------+----------+---------------------+
+; Port         ; Type  ; Severity ; Details             ;
++--------------+-------+----------+---------------------+
+; entradac_mux ; Input ; Info     ; Stuck at VCC        ;
+; entradad_mux ; Input ; Info     ; Stuck at GND        ;
++--------------+-------+----------+---------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "somadorSinais:incImediato" ;
++--------------------+-------+----------+---------------+
+; Port               ; Type  ; Severity ; Details       ;
++--------------------+-------+----------+---------------+
+; entradabaixo[1..0] ; Input ; Info     ; Stuck at GND  ;
++--------------------+-------+----------+---------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "registradorGenerico:PC" ;
++--------+-------+----------+------------------------+
+; Port   ; Type  ; Severity ; Details                ;
++--------+-------+----------+------------------------+
+; enable ; Input ; Info     ; Stuck at VCC           ;
+; rst    ; Input ; Info     ; Stuck at GND           ;
++--------+-------+----------+------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 2848                        ;
+;     ENA               ; 2818                        ;
+;     plain             ; 30                          ;
+; arriav_lcell_comb     ; 1788                        ;
+;     arith             ; 60                          ;
+;         1 data inputs ; 30                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 14                          ;
+;     extend            ; 234                         ;
+;         7 data inputs ; 234                         ;
+;     normal            ; 1494                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 196                         ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 100                         ;
+;         5 data inputs ; 72                          ;
+;         6 data inputs ; 1060                        ;
+; boundary_port         ; 169                         ;
+;                       ;                             ;
+; Max LUT depth         ; 19.00                       ;
+; Average LUT depth     ; 8.96                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:12     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Dec 06 21:47:22 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (12019): Can't analyze file -- file mips.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico4x1.vhd
+    Info (12022): Found design unit 1: muxGenerico4x1-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1.vhd Line: 17
+    Info (12023): Found entity 1: muxGenerico4x1 File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file somadorula.vhd
+    Info (12022): Found design unit 1: somadorULA-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorULA.vhd Line: 17
+    Info (12023): Found entity 1: somadorULA File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico4x1_1bit.vhd
+    Info (12022): Found design unit 1: muxGenerico4x1_1bit-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1_1bit.vhd Line: 14
+    Info (12023): Found entity 1: muxGenerico4x1_1bit File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1_1bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1_1bit.vhd
+    Info (12022): Found design unit 1: muxGenerico2x1_1bit-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1_1bit.vhd Line: 14
+    Info (12023): Found entity 1: muxGenerico2x1_1bit File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1_1bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file conversorhex7seg.vhd
+    Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/conversorHex7Seg.vhd Line: 16
+    Info (12023): Found entity 1: conversorHex7Seg File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/conversorHex7Seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1.vhd
+    Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1.vhd Line: 16
+    Info (12023): Found entity 1: muxGenerico2x1 File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ulasomasub.vhd
+    Info (12022): Found design unit 1: ULASomaSub-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULASomaSub.vhd Line: 15
+    Info (12023): Found entity 1: ULASomaSub File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULASomaSub.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bancoreg.vhd
+    Info (12022): Found design unit 1: bancoReg-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/bancoReg.vhd Line: 30
+    Info (12023): Found entity 1: bancoReg File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/bancoReg.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file somaconstante.vhd
+    Info (12022): Found design unit 1: somaConstante-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somaConstante.vhd Line: 18
+    Info (12023): Found entity 1: somaConstante File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somaConstante.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
+    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/registradorGenerico.vhd Line: 15
+    Info (12023): Found entity 1: registradorGenerico File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/registradorGenerico.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
+    Info (12022): Found design unit 1: RAM-assincrona File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 18
+    Info (12023): Found entity 1: RAM File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
+    Info (12022): Found design unit 1: ROM-assincrona File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ROM.vhd Line: 15
+    Info (12023): Found entity 1: ROM File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ROM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file toplevel.vhd
+    Info (12022): Found design unit 1: TopLevel-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 28
+    Info (12023): Found entity 1: TopLevel File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file lui.vhd
+    Info (12022): Found design unit 1: LUI-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/LUI.vhd Line: 17
+    Info (12023): Found entity 1: LUI File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/LUI.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file shift.vhd
+    Info (12022): Found design unit 1: Shift-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Shift.vhd Line: 18
+    Info (12023): Found entity 1: Shift File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Shift.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file extendsignal.vhd
+    Info (12022): Found design unit 1: extendSignal-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/extendSignal.vhd Line: 16
+    Info (12023): Found entity 1: extendSignal File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/extendSignal.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ULA-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA.vhd Line: 17
+    Info (12023): Found entity 1: ULA File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ula_0_31.vhd
+    Info (12022): Found design unit 1: ULA_0_31-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA_0_31.vhd Line: 19
+    Info (12023): Found entity 1: ULA_0_31 File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA_0_31.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file somadorsinais.vhd
+    Info (12022): Found design unit 1: somadorSinais-comportamento File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorSinais.vhd Line: 16
+    Info (12023): Found entity 1: somadorSinais File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorSinais.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: Decoder-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder.vhd Line: 15
+    Info (12023): Found entity 1: Decoder File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file decoder_instr.vhd
+    Info (12022): Found design unit 1: Decoder_Instr-arquitetura File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder_Instr.vhd Line: 13
+    Info (12023): Found entity 1: Decoder_Instr File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder_Instr.vhd Line: 5
+Info (12127): Elaborating entity "TopLevel" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at TopLevel.vhd(41): object "SIG_FUNCT" assigned a value but never read File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 41
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 80
+Info (12128): Elaborating entity "somaConstante" for hierarchy "somaConstante:incPC" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 89
+Info (12128): Elaborating entity "somadorSinais" for hierarchy "somadorSinais:incImediato" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 95
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MUX_BEQ" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 104
+Info (12128): Elaborating entity "muxGenerico4x1" for hierarchy "muxGenerico4x1:MUX_BANREG" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 120
+Info (12128): Elaborating entity "muxGenerico4x1" for hierarchy "muxGenerico4x1:MUX_ULA_MEM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 146
+Info (12128): Elaborating entity "muxGenerico2x1_1bit" for hierarchy "muxGenerico2x1_1bit:MUX_FLAGZ" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 180
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:ROM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 188
+Warning (10541): VHDL Signal Declaration warning at ROM.vhd(18): used implicit default value for signal "memROM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ROM.vhd Line: 18
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 194
+Info (12128): Elaborating entity "bancoReg" for hierarchy "bancoReg:bancoRegistradores" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 205
+Info (12128): Elaborating entity "ULA" for hierarchy "ULA:ULA" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 217
+Info (12128): Elaborating entity "ULA_0_31" for hierarchy "ULA:ULA|ULA_0_31:ULA_0" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA.vhd Line: 27
+Info (12128): Elaborating entity "somadorULA" for hierarchy "ULA:ULA|ULA_0_31:ULA_0|somadorULA:SOMADOR" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA_0_31.vhd Line: 34
+Info (12128): Elaborating entity "muxGenerico4x1_1bit" for hierarchy "ULA:ULA|ULA_0_31:ULA_0|muxGenerico4x1_1bit:MUX_RESULTADO" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA_0_31.vhd Line: 43
+Info (12128): Elaborating entity "Shift" for hierarchy "Shift:shift" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 228
+Info (12128): Elaborating entity "extendSignal" for hierarchy "extendSignal:extendSignal" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 237
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "extendSignal:extendSignal|muxGenerico2x1:MUX_extended" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/extendSignal.vhd Line: 22
+Info (12128): Elaborating entity "LUI" for hierarchy "LUI:LUI" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 244
+Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:decoder" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 250
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "Decoder:decoder|muxGenerico2x1:MUX_ULA_CTRL" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder.vhd Line: 39
+Info (12128): Elaborating entity "Decoder_Instr" for hierarchy "Decoder:decoder|Decoder_Instr:CONTROL_UNIT" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder.vhd Line: 47
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:HEX_0" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 259
+Info (276014): Found 3 instances of uninferred RAM logic
+    Info (276007): RAM logic "bancoReg:bancoRegistradores|registrador" is uninferred due to asynchronous read logic File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/bancoReg.vhd Line: 49
+    Info (276007): RAM logic "RAM:RAM|memRAM" is uninferred due to asynchronous read logic File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 21
+    Info (276004): RAM logic "ROM:ROM|memROM" is uninferred due to inappropriate RAM size File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ROM.vhd Line: 18
+Warning (113028): 46 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 3 warnings found, and 3 warnings are reported. File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.mif Line: 1
+    Warning (113026): Memory Initialization File Address 16 is not initialized File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.mif Line: 1
+    Warning (113027): Addresses ranging from 18 to 30 are not initialized File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.mif Line: 1
+    Warning (113027): Addresses ranging from 32 to 63 are not initialized File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.mif Line: 1
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[12]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[11]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[10]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[9]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[8]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[7]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[6]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[5]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[4]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[3]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[2]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[1]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[0]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[13]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[14]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[15]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[16]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[17]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[18]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[19]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[20]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[21]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[22]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[23]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[24]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[25]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[26]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[27]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[28]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[29]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[30]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+    Warning (13049): Converted tri-state buffer "RAM:RAM|Dado_out[31]" feeding internal logic into a wire File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd Line: 13
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "PALAVRA[13]" is stuck at GND File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 19
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK_50" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 11
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd Line: 12
+Info (21057): Implemented 4752 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 154 output pins
+    Info (21061): Implemented 4583 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 57 warnings
+    Info: Peak virtual memory: 4854 megabytes
+    Info: Processing ended: Tue Dec 06 21:47:52 2022
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:24
+
+

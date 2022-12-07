@@ -1,0 +1,58 @@
+Quartus Prime Archive log --	C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/mips.qarlog
+
+Archive:	C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/mips.qar
+Date:		Tue Dec 06 21:54:08 2022
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Decoder_Instr.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/LUI.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/RAM.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ROM.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/Shift.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.mif
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/TopLevel.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULASomaSub.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/ULA_0_31.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/bancoReg.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/c5_pin_model_dump.txt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/conversorHex7Seg.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/db/mips.db_info
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/extendSignal.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.db_info
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.cdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.dfp
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.hbdb.cdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.hbdb.hdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.hbdb.sig
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.hdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.logdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.cmp.rcfdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.cdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.dpi
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.hbdb.cdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.hbdb.hb_info
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.hbdb.hdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.hbdb.sig
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.hdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.root_partition.map.kpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.rrp.hdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/incremental_db/compiled_partitions/mips.rrs.cdb
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/mips.archive.rpt
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/mips.qpf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/mips.qsf
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico2x1_1bit.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/muxGenerico4x1_1bit.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/registradorGenerico.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somaConstante.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorSinais.vhd
+C:/Users/Luiza Valezim/OneDrive/Desktop/Insper/2022.2/Design de Computadores/DESCOMP-EL/Projetos/Projeto 2/MIPS_FINAL/somadorULA.vhd
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 47 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
